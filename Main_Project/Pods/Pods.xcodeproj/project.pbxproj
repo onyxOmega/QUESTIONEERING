@@ -1,0 +1,1699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		002AFAF21C33E7C89BC56EF98BD71ACE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */; };
+		0B7F3A5778839F4CDC80F933767816FC /* BoltProtocol-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F46C9A6D75C21367FEE7616BA07D8DCA /* BoltProtocol-dummy.m */; };
+		0F55C4A6861F46FBFAD4CDFDBEF61498 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374979BD85CBF99F260AE22181AD0D4 /* Node.swift */; };
+		2071F173074C414EA547B7F5C78C7A58 /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7218A27306DBC1220485E45234AACD65 /* QueryResult.swift */; };
+		24B6656F5497464E60AADCA28936F71B /* SocketUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85535220A53C996717EF8BF968CE5D0 /* SocketUtils.swift */; };
+		2CE9AEFF18B938F90A47B59520DB964A /* BoltClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACF5DFF7749ADB7F9FAFEAF5CD93A05 /* BoltClient.swift */; };
+		2E1A2D967C45F640F5DE6BC8AEDB69DB /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E819239D6DBCF36732A27497BA5B32 /* Socket.swift */; };
+		3072ED027B0EC789208042B6D6D0B4D3 /* QuerySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820F9FA8BF9E4D14AD001FBBDB500EA /* QuerySummary.swift */; };
+		32DA973F643363AF61FC4E7A80EBF6D0 /* Theo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B24ABFF541B2C464539B6DC67A3B06A /* Theo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3553BEEC6D16E2C81490DF05BFEB7D96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */; };
+		35A0B12574F0BABB945B4EA2808813D5 /* BlueSSLService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE7EE94A0514ECD891C0B702EB90117 /* BlueSSLService-dummy.m */; };
+		3B735BBEBC3BED90133A076ED0A82E91 /* EncryptedSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5C9C3C9C53908D714FCEF20481224 /* EncryptedSocket.swift */; };
+		3B7602C417EAA802CD4346752764D175 /* Null.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550A9D317E7D7799BB010861C735295A /* Null.swift */; };
+		44D9FD758C53202FE2701E2F35A5F0F5 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C49C181C293B40381C86078173BF3D5 /* Record.swift */; };
+		4981CF3E9BCBDE32267D615316FAEB35 /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883DF94B6428FAC8B315D8C2F4D11DA /* StringProtocol.swift */; };
+		4CEF47D64CD8B9B1FB5E68B4D92FC6E8 /* JSONClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFD81CF248115E09B2E709843EC87F /* JSONClientConfiguration.swift */; };
+		4DD4B5F04566F7797513FD247EA2CB81 /* Structure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8568C092B628317142EE94C959316 /* Structure.swift */; };
+		4E9FC1D876CE2BA4E553FDB9CA12F306 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F308A8DDDD3211C5ED69DAFA143818 /* Relationship.swift */; };
+		50B94A25B1BD1DB3D722B35D75436A46 /* Pods-Main_Project-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A127E197BB63C6563B959508F4F3152F /* Pods-Main_Project-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5485D184A57D640A697DACD5AA9EF95F /* ConnectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B90BBA1A24055D5CEBF612148493 /* ConnectionSettings.swift */; };
+		5EE2228BBAB5622594FE123098054E99 /* SocketProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF16834566880A4B9C4AD02D1FF28CC /* SocketProtocols.swift */; };
+		60CD0268F3E8C14F43AB6D6F9C27139F /* PackStream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BC8EF1CB773142FA06F48BE0CA1B232 /* PackStream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6600361ECFBB3486D4607AF804AD62D7 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898078EE047D24EEF59D98DE262AD398 /* Int.swift */; };
+		68EB5C1ED9DDB77E4BF642D6D061AFE8 /* SocketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB26A1A187A12D758789FAE4B92FAD /* SocketProtocol.swift */; };
+		6C5FEC5DBC4E2DDAD2CE38E6316087BF /* SSLConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F674F05813070B65B53678846FD0E629 /* SSLConfiguration.swift */; };
+		70119679E2ECF3FA522075C2050D96F3 /* BlueSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F2D701C646755D39A0AB73F09895D8 /* BlueSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		702684001ABE8D1ABEF0020C565A6217 /* PackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864F3A16D7E6EEFF0349123A23BF9B3 /* PackProtocol.swift */; };
+		70C5E8182751F899AFA2C882A685DCE6 /* Result-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A14C8A398A1503BF8984FC1DE88B2A /* Result-dummy.m */; };
+		71899BDC51AFE2C411A7D1CA89762B1B /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D530DF5C80BB97866C8E53338E6D07C /* Path.swift */; };
+		721C50B480EAE5FDC487AC83E1C91B3E /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7608DAD9BF82195F0123FF81BC0E2558 /* QueryType.swift */; };
+		76EEB4035FCD0B9524AC62B56F776BF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */; };
+		7CD74FD0C8893F799C60FFD1D567ACF4 /* BlueSSLService-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8096206B5A42E92C06365302E41A61D4 /* BlueSSLService-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B0B53051D6F2819D74BD30CB18BBAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */; };
+		816BA5B8B6767F81C3934B661E1071AC /* BlueSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DF3335CFF8289D70C12E5B8C4ED36 /* BlueSocket-dummy.m */; };
+		8F3F28C474D7A1F8A5D53DAB34B09517 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B6308DDEFF6EA87FBDEAE89B38D04 /* Bool.swift */; };
+		8F782F150CB537DB00A5572F9170EA65 /* Pods-Main_Project-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCA5C1252BC236B44E21DA063FE2E7A /* Pods-Main_Project-dummy.m */; };
+		930D62AFBB64B39372C3118089A28B14 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD0777C001384EA74AA47059A3BFFCB /* Map.swift */; };
+		95CF91B6BD11FC7C4F0D3919F699A7E5 /* UnencryptedSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B5AAF6345C2A1A7F3FFD062C51A6B /* UnencryptedSocket.swift */; };
+		978B616DC920A9A6A0A886E899794A3A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A51B8DADEF868C8FBAFE7C5001ED7EF /* List.swift */; };
+		9795796357805EDD1803DFE88AE69E5F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F695DADC003872831439581AFCD43D5 /* Response.swift */; };
+		98B61C9DE76AFFDA8C221E10B8C5AED2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */; };
+		9B6234C6E21F452634BA3DB6473C88BD /* SSLKeyGeneratorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC4F4E09AD4D02C465C8A976F627B2 /* SSLKeyGeneratorConfig.swift */; };
+		A992A06817DC1A42CF02D024B9D3D2D8 /* BoltProtocol-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 06586AF0973811980AFF4C599F8AD33D /* BoltProtocol-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B679FDD22029F96800C0C878 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDD12029F95D00C0C878 /* Socket.framework */; };
+		B679FDD32029F96900C0C878 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDD12029F95D00C0C878 /* Socket.framework */; };
+		B679FDD42029F96A00C0C878 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDD12029F95D00C0C878 /* Socket.framework */; };
+		B679FDD62029F97F00C0C878 /* SSLService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDD52029F97900C0C878 /* SSLService.framework */; };
+		B679FDD72029F98000C0C878 /* SSLService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDD52029F97900C0C878 /* SSLService.framework */; };
+		B679FDD92029F99000C0C878 /* Bolt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDD82029F99000C0C878 /* Bolt.framework */; };
+		B679FDDB2029F9A600C0C878 /* PackStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDDA2029F9A600C0C878 /* PackStream.framework */; };
+		B679FDDC2029F9A600C0C878 /* PackStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDDA2029F9A600C0C878 /* PackStream.framework */; };
+		B679FDDF2029F9BC00C0C878 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDDD2029F9B200C0C878 /* Result.framework */; };
+		BC1976B2B0F2479E29A55B3EE0982F59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */; };
+		BD7908F4650AF1BDB88E2B5BC1081660 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3FAE50EA0EB18C3963FD664C8E195 /* Errors.swift */; };
+		BDA93B02EAA89B7C0B82353F0A212DAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */; };
+		C10246C28E1226220BB39940C66FB8F8 /* Result-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B09357B7807AAFA33A45558C0F3A7893 /* Result-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA929E18C40D875B897B8B0BC395E655 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B93A6E077F6940531448E204D19794 /* Request.swift */; };
+		CC6E5595632108FDFB90EFEF63CBCF33 /* UnboundRelationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05F2EF9152C659A61C632EF0D10B6B /* UnboundRelationship.swift */; };
+		D17AD0378BE52D36A22360F23D3F6A66 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E19A7AC7CCDF5D1F3C5AB11CD31547 /* ResultProtocol.swift */; };
+		D5046688E26DE57864ED83C0E0EC30A1 /* SSLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1827C99C0EDE85B51183FA0A5F348FF /* SSLService.swift */; };
+		D72E095BCF9D8BE7A4A94BBCEB9C570C /* Packer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B426CFEC9A5ECCA747AC44C74DE5 /* Packer.swift */; };
+		DBAFABFBC7892E92117AB285D02462BF /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3B3712E0F46FB3ECFA6953A844C936 /* Float.swift */; };
+		E11C66F22D8E81378B518241B4197498 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6231AD21546AF3A98854164E8B06B /* Result.swift */; };
+		E52D44E6DB3F96F6108E8776FDCD1052 /* QueryStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD276D762B40F8087A693B5B0A54D4BF /* QueryStats.swift */; };
+		EBFE4F520FE826FC022830FB97DA593B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25912AF965EC466653497CF6439E33F6 /* String.swift */; };
+		ECA7746412AA67799CA838D99C144496 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ECD2A74C852B6C53B6D959E7E9565 /* Connection.swift */; };
+		F17271FBEC0069490BD34A981C9B53FD /* PackStream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDF0BADE2D3F302D850B389B3FF5887 /* PackStream-dummy.m */; };
+		F528803BDC0C635DFAC1E15337158043 /* ClientConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFB8B156094C1BBDF6DA582A6DF2B2 /* ClientConfigurationProtocol.swift */; };
+		F69224A72E0FFA60096843E62F144EF7 /* Theo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4178F557842EAF10009A888682A6BFB0 /* Theo-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F010B5A0F243493B09184E7678F8E9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044760C6327621F4E7C13C9AEB884D81;
+			remoteInfo = BlueSSLService;
+		};
+		2296DAB848E9F4FA1F6D0AE10CD2EDB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044760C6327621F4E7C13C9AEB884D81;
+			remoteInfo = BlueSSLService;
+		};
+		30124BE02F602D8F4A61C27AA4B85B6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1053405F1F7488B4AD94BD05AC90814D;
+			remoteInfo = BlueSocket;
+		};
+		5866114D5E2E7D6F4AA6A78623C5EE14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE99CFA2079F03F84EA7C6630E6B8B25;
+			remoteInfo = BoltProtocol;
+		};
+		719227364340BCF9728FC4EF71159224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0063A6744215A5E1445118A566051117;
+			remoteInfo = PackStream;
+		};
+		967C510B5396D0EF2660279204092063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1053405F1F7488B4AD94BD05AC90814D;
+			remoteInfo = BlueSocket;
+		};
+		9D17297F59F3835E5E659ABF88E4CE2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE99CFA2079F03F84EA7C6630E6B8B25;
+			remoteInfo = BoltProtocol;
+		};
+		A19555AA77F002EC32540FD27D77AA9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08295AF7C055BEA8AFBE51D63CEBA212;
+			remoteInfo = Theo;
+		};
+		B19ED60EDFB756E98D7AB1718B0B9BF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8CA3578C0213E0E875C0B91CF2BBDD5;
+			remoteInfo = Result;
+		};
+		C9A9EBD472120CE921FA80350F8A4A4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0063A6744215A5E1445118A566051117;
+			remoteInfo = PackStream;
+		};
+		CC3FA9F7EB190146BDAE818BD5B9606E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8CA3578C0213E0E875C0B91CF2BBDD5;
+			remoteInfo = Result;
+		};
+		D974E87B2AF0564D89121329155F6F38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044760C6327621F4E7C13C9AEB884D81;
+			remoteInfo = BlueSSLService;
+		};
+		DAC95D07D94B444DEC89AE6C7C22EA95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1053405F1F7488B4AD94BD05AC90814D;
+			remoteInfo = BlueSocket;
+		};
+		E1AE1AE360442FC65349204A9F83F69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0063A6744215A5E1445118A566051117;
+			remoteInfo = PackStream;
+		};
+		E92B92E2A69183DDE25ABC287FD3EBB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1053405F1F7488B4AD94BD05AC90814D;
+			remoteInfo = BlueSocket;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		056EBE23A70BB140DA5E256BACD36ADA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		064ECD2A74C852B6C53B6D959E7E9565 /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Sources/Connection.swift; sourceTree = "<group>"; };
+		06586AF0973811980AFF4C599F8AD33D /* BoltProtocol-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BoltProtocol-umbrella.h"; sourceTree = "<group>"; };
+		0B24ABFF541B2C464539B6DC67A3B06A /* Theo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Theo-umbrella.h"; sourceTree = "<group>"; };
+		0C49C181C293B40381C86078173BF3D5 /* Record.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Record.swift; path = Sources/Theo/Model/Record.swift; sourceTree = "<group>"; };
+		0FF16834566880A4B9C4AD02D1FF28CC /* SocketProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketProtocols.swift; path = Sources/Socket/SocketProtocols.swift; sourceTree = "<group>"; };
+		17F2D701C646755D39A0AB73F09895D8 /* BlueSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlueSocket-umbrella.h"; sourceTree = "<group>"; };
+		1864F3A16D7E6EEFF0349123A23BF9B3 /* PackProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PackProtocol.swift; path = Sources/PackProtocol.swift; sourceTree = "<group>"; };
+		1E451B9AB20403D55F027C1E4AB659F0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F695DADC003872831439581AFCD43D5 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Response.swift; sourceTree = "<group>"; };
+		25912AF965EC466653497CF6439E33F6 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = String.swift; path = Sources/String.swift; sourceTree = "<group>"; };
+		2FCB26A1A187A12D758789FAE4B92FAD /* SocketProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketProtocol.swift; path = Sources/SocketProtocol.swift; sourceTree = "<group>"; };
+		304752371F51AF8FEBB8FAF4E48B60A0 /* BlueSSLService.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BlueSSLService.xcconfig; sourceTree = "<group>"; };
+		32B8F59748FCF7289E2E58D1EB6D2958 /* Pods_Main_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Main_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D8568C092B628317142EE94C959316 /* Structure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Structure.swift; path = Sources/Structure.swift; sourceTree = "<group>"; };
+		3478FA14563E193D5BBD0418F270FBAB /* Result.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Result.modulemap; sourceTree = "<group>"; };
+		3A1B9D7A304A3FFA644B7EC0D522D799 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C9B4EB9C0742FFD966378C5BB9C8D68 /* Result.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Result.xcconfig; sourceTree = "<group>"; };
+		4178F557842EAF10009A888682A6BFB0 /* Theo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Theo-dummy.m"; sourceTree = "<group>"; };
+		44E19A7AC7CCDF5D1F3C5AB11CD31547 /* ResultProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResultProtocol.swift; path = Result/ResultProtocol.swift; sourceTree = "<group>"; };
+		467427002A0AA67549EE7D9BD51C2BEC /* Pods-Main_Project.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Main_Project.modulemap"; sourceTree = "<group>"; };
+		47D3FAE50EA0EB18C3963FD664C8E195 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Theo/Support/Errors.swift; sourceTree = "<group>"; };
+		49428139A05296E4E81A2A94716F8C81 /* PackStream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PackStream.modulemap; sourceTree = "<group>"; };
+		4B3CF4EED578F0D783A83926F4501D0B /* Socket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Socket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		550A9D317E7D7799BB010861C735295A /* Null.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Null.swift; path = Sources/Null.swift; sourceTree = "<group>"; };
+		55E819239D6DBCF36732A27497BA5B32 /* Socket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Sources/Socket/Socket.swift; sourceTree = "<group>"; };
+		566B6308DDEFF6EA87FBDEAE89B38D04 /* Bool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bool.swift; path = Sources/Bool.swift; sourceTree = "<group>"; };
+		56B5607C69942E6AF9E0E6C79608A2E9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57F308A8DDDD3211C5ED69DAFA143818 /* Relationship.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Relationship.swift; path = Sources/Theo/Model/Relationship.swift; sourceTree = "<group>"; };
+		598116C5F38734917CC95C95283F3BB9 /* BlueSSLService.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BlueSSLService.modulemap; sourceTree = "<group>"; };
+		628AC514595B8DCBE2C86C97A67E1F73 /* BlueSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlueSocket-prefix.pch"; sourceTree = "<group>"; };
+		6374979BD85CBF99F260AE22181AD0D4 /* Node.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Sources/Theo/Model/Node.swift; sourceTree = "<group>"; };
+		6D925EE414BD93AA3F251A088AE0BADD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		703B245ABBC18A6937A5D0A9A4E466E8 /* Pods-Main_Project-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Main_Project-resources.sh"; sourceTree = "<group>"; };
+		7218A27306DBC1220485E45234AACD65 /* QueryResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryResult.swift; path = Sources/Theo/Model/QueryResult.swift; sourceTree = "<group>"; };
+		73D650AECD95F071ED7B51502E6A56A5 /* Pods-Main_Project-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Main_Project-frameworks.sh"; sourceTree = "<group>"; };
+		7608DAD9BF82195F0123FF81BC0E2558 /* QueryType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryType.swift; path = Sources/Theo/Model/QueryType.swift; sourceTree = "<group>"; };
+		7811C462D10C67190E6332AFDD7D7A39 /* BoltProtocol-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BoltProtocol-prefix.pch"; sourceTree = "<group>"; };
+		79D6231AD21546AF3A98854164E8B06B /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Result/Result.swift; sourceTree = "<group>"; };
+		7BC8EF1CB773142FA06F48BE0CA1B232 /* PackStream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PackStream-umbrella.h"; sourceTree = "<group>"; };
+		7C3B3712E0F46FB3ECFA6953A844C936 /* Float.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Float.swift; path = Sources/Float.swift; sourceTree = "<group>"; };
+		7C9DF3335CFF8289D70C12E5B8C4ED36 /* BlueSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BlueSocket-dummy.m"; sourceTree = "<group>"; };
+		7DBCD3C7C47655CE4A7B21E1CE8725ED /* Pods-Main_Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Main_Project.release.xcconfig"; sourceTree = "<group>"; };
+		7F3C41FC644F4DE6EE735AB604E502A7 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8096206B5A42E92C06365302E41A61D4 /* BlueSSLService-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlueSSLService-umbrella.h"; sourceTree = "<group>"; };
+		80AC4F4E09AD4D02C465C8A976F627B2 /* SSLKeyGeneratorConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLKeyGeneratorConfig.swift; path = Sources/SSLKeyGeneratorConfig.swift; sourceTree = "<group>"; };
+		8330B90BBA1A24055D5CEBF612148493 /* ConnectionSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectionSettings.swift; path = Sources/ConnectionSettings.swift; sourceTree = "<group>"; };
+		896C9E0BD6F8EA861DC56FBB4898E688 /* PackStream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PackStream-prefix.pch"; sourceTree = "<group>"; };
+		898078EE047D24EEF59D98DE262AD398 /* Int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Int.swift; path = Sources/Int.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9A51B8DADEF868C8FBAFE7C5001ED7EF /* List.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = List.swift; path = Sources/List.swift; sourceTree = "<group>"; };
+		9D05F2EF9152C659A61C632EF0D10B6B /* UnboundRelationship.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboundRelationship.swift; path = Sources/Theo/Model/UnboundRelationship.swift; sourceTree = "<group>"; };
+		9D530DF5C80BB97866C8E53338E6D07C /* Path.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Path.swift; path = Sources/Theo/Model/Path.swift; sourceTree = "<group>"; };
+		9FDFB8B156094C1BBDF6DA582A6DF2B2 /* ClientConfigurationProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ClientConfigurationProtocol.swift; path = Sources/Theo/ClientConfigurationProtocol.swift; sourceTree = "<group>"; };
+		A127E197BB63C6563B959508F4F3152F /* Pods-Main_Project-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Main_Project-umbrella.h"; sourceTree = "<group>"; };
+		A85535220A53C996717EF8BF968CE5D0 /* SocketUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketUtils.swift; path = Sources/Socket/SocketUtils.swift; sourceTree = "<group>"; };
+		A883DF94B6428FAC8B315D8C2F4D11DA /* StringProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringProtocol.swift; path = Sources/Theo/Support/StringProtocol.swift; sourceTree = "<group>"; };
+		AB14B894A7765C63394696EC0F6592F8 /* PackStream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PackStream.xcconfig; sourceTree = "<group>"; };
+		B09357B7807AAFA33A45558C0F3A7893 /* Result-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Result-umbrella.h"; sourceTree = "<group>"; };
+		B1827C99C0EDE85B51183FA0A5F348FF /* SSLService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLService.swift; path = Sources/SSLService/SSLService.swift; sourceTree = "<group>"; };
+		B679FDD12029F95D00C0C878 /* Socket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Socket.framework; sourceTree = "<group>"; };
+		B679FDD52029F97900C0C878 /* SSLService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SSLService.framework; sourceTree = "<group>"; };
+		B679FDD82029F99000C0C878 /* Bolt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolt.framework; sourceTree = "<group>"; };
+		B679FDDA2029F9A600C0C878 /* PackStream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PackStream.framework; sourceTree = "<group>"; };
+		B679FDDD2029F9B200C0C878 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		B94B5AAF6345C2A1A7F3FFD062C51A6B /* UnencryptedSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnencryptedSocket.swift; path = Sources/UnencryptedSocket.swift; sourceTree = "<group>"; };
+		BD55F60BD468DC8478A71DB8C0DEE74B /* SSLService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSLService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5EE73B93F97E0CDE2104F23506D023 /* BlueSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BlueSocket.modulemap; sourceTree = "<group>"; };
+		C6B9C53617A61280BCF4F980895CF47F /* Theo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Theo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FFD81CF248115E09B2E709843EC87F /* JSONClientConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONClientConfiguration.swift; path = Sources/Theo/JSONClientConfiguration.swift; sourceTree = "<group>"; };
+		CACF5DFF7749ADB7F9FAFEAF5CD93A05 /* BoltClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BoltClient.swift; path = Sources/Theo/BoltClient.swift; sourceTree = "<group>"; };
+		CCDF0BADE2D3F302D850B389B3FF5887 /* PackStream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PackStream-dummy.m"; sourceTree = "<group>"; };
+		CD276D762B40F8087A693B5B0A54D4BF /* QueryStats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryStats.swift; path = Sources/Theo/Model/QueryStats.swift; sourceTree = "<group>"; };
+		CEE2272995C556FFD503B77EA927DDAD /* Theo-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Theo-prefix.pch"; sourceTree = "<group>"; };
+		CF689AED0CC56606CE4B4A78C4EB8D1F /* BlueSSLService-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlueSSLService-prefix.pch"; sourceTree = "<group>"; };
+		CFCA5C1252BC236B44E21DA063FE2E7A /* Pods-Main_Project-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Main_Project-dummy.m"; sourceTree = "<group>"; };
+		D12003DC91AB260783630750EF537F59 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C6BE5363798CA3DE6E73891C7051D7 /* Result-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Result-prefix.pch"; sourceTree = "<group>"; };
+		D7CADCFD725DCA5268115B6C026DCE7C /* Theo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Theo.modulemap; sourceTree = "<group>"; };
+		DA0C630A29DE31DAB242D8EF1550EA58 /* BlueSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BlueSocket.xcconfig; sourceTree = "<group>"; };
+		DA49598CC4287099559F7ED5DC83C744 /* BoltProtocol.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BoltProtocol.modulemap; sourceTree = "<group>"; };
+		DDC9B426CFEC9A5ECCA747AC44C74DE5 /* Packer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Packer.swift; path = Sources/Packer.swift; sourceTree = "<group>"; };
+		E0C5C9C3C9C53908D714FCEF20481224 /* EncryptedSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EncryptedSocket.swift; path = Sources/EncryptedSocket.swift; sourceTree = "<group>"; };
+		E0C977311BC3AEDE9629B6EC4EF9CDE8 /* Pods-Main_Project-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Main_Project-acknowledgements.plist"; sourceTree = "<group>"; };
+		E820F9FA8BF9E4D14AD001FBBDB500EA /* QuerySummary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuerySummary.swift; path = Sources/Theo/Model/QuerySummary.swift; sourceTree = "<group>"; };
+		E8B93A6E077F6940531448E204D19794 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Sources/Request.swift; sourceTree = "<group>"; };
+		E9AFD95A94A82B513E5D6C1504603E71 /* Bolt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E06B074CF5EBDC4C37EE1557AEE479 /* Pods-Main_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Main_Project.debug.xcconfig"; sourceTree = "<group>"; };
+		EAE7EE94A0514ECD891C0B702EB90117 /* BlueSSLService-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BlueSSLService-dummy.m"; sourceTree = "<group>"; };
+		F0A14C8A398A1503BF8984FC1DE88B2A /* Result-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Result-dummy.m"; sourceTree = "<group>"; };
+		F39579E50CE099A8F8306A9EBA73D316 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46C9A6D75C21367FEE7616BA07D8DCA /* BoltProtocol-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BoltProtocol-dummy.m"; sourceTree = "<group>"; };
+		F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F674F05813070B65B53678846FD0E629 /* SSLConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLConfiguration.swift; path = Sources/SSLConfiguration.swift; sourceTree = "<group>"; };
+		F98FF7B816C71988AC93FFB427D6C60A /* PackStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PackStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9D4A061C3CAA60DA31E78A20442F114 /* BoltProtocol.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BoltProtocol.xcconfig; sourceTree = "<group>"; };
+		FDD0777C001384EA74AA47059A3BFFCB /* Map.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Map.swift; path = Sources/Map.swift; sourceTree = "<group>"; };
+		FEE5981586335187D0459FFB77DA66A7 /* Pods-Main_Project-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Main_Project-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FF862513D65778F267377C0E7D15E0B8 /* Theo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Theo.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		34CFD432423D71D3766A20F81CA2FA30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC1976B2B0F2479E29A55B3EE0982F59 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		504DC5755C9004DF17848ADAE142BE7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B679FDD22029F96800C0C878 /* Socket.framework in Frameworks */,
+				76EEB4035FCD0B9524AC62B56F776BF1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BC9B5D25E58D12BF13B4EE384DEEE0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002AFAF21C33E7C89BC56EF98BD71ACE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F16F5D53462B0D047EADF99550B421C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B0B53051D6F2819D74BD30CB18BBAB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AB360558C9B4C55310C0A0A2A822114 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B679FDD62029F97F00C0C878 /* SSLService.framework in Frameworks */,
+				BDA93B02EAA89B7C0B82353F0A212DAB /* Foundation.framework in Frameworks */,
+				B679FDDB2029F9A600C0C878 /* PackStream.framework in Frameworks */,
+				B679FDD32029F96900C0C878 /* Socket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB52FFF0C38A064FBB30FC21FBF059D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98B61C9DE76AFFDA8C221E10B8C5AED2 /* Foundation.framework in Frameworks */,
+				B679FDD92029F99000C0C878 /* Bolt.framework in Frameworks */,
+				B679FDD42029F96A00C0C878 /* Socket.framework in Frameworks */,
+				B679FDDF2029F9BC00C0C878 /* Result.framework in Frameworks */,
+				B679FDDC2029F9A600C0C878 /* PackStream.framework in Frameworks */,
+				B679FDD72029F98000C0C878 /* SSLService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDFCFC2B007ECBF1A2D179B99238F7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3553BEEC6D16E2C81490DF05BFEB7D96 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05E37097F51C1F22C32A07196630B845 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E451B9AB20403D55F027C1E4AB659F0 /* Info.plist */,
+				3478FA14563E193D5BBD0418F270FBAB /* Result.modulemap */,
+				3C9B4EB9C0742FFD966378C5BB9C8D68 /* Result.xcconfig */,
+				F0A14C8A398A1503BF8984FC1DE88B2A /* Result-dummy.m */,
+				D4C6BE5363798CA3DE6E73891C7051D7 /* Result-prefix.pch */,
+				B09357B7807AAFA33A45558C0F3A7893 /* Result-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Result";
+			sourceTree = "<group>";
+		};
+		061122BF67B62CEF4952842BF5B40B47 /* Pods-Main_Project */ = {
+			isa = PBXGroup;
+			children = (
+				56B5607C69942E6AF9E0E6C79608A2E9 /* Info.plist */,
+				467427002A0AA67549EE7D9BD51C2BEC /* Pods-Main_Project.modulemap */,
+				FEE5981586335187D0459FFB77DA66A7 /* Pods-Main_Project-acknowledgements.markdown */,
+				E0C977311BC3AEDE9629B6EC4EF9CDE8 /* Pods-Main_Project-acknowledgements.plist */,
+				CFCA5C1252BC236B44E21DA063FE2E7A /* Pods-Main_Project-dummy.m */,
+				73D650AECD95F071ED7B51502E6A56A5 /* Pods-Main_Project-frameworks.sh */,
+				703B245ABBC18A6937A5D0A9A4E466E8 /* Pods-Main_Project-resources.sh */,
+				A127E197BB63C6563B959508F4F3152F /* Pods-Main_Project-umbrella.h */,
+				E9E06B074CF5EBDC4C37EE1557AEE479 /* Pods-Main_Project.debug.xcconfig */,
+				7DBCD3C7C47655CE4A7B21E1CE8725ED /* Pods-Main_Project.release.xcconfig */,
+			);
+			name = "Pods-Main_Project";
+			path = "Target Support Files/Pods-Main_Project";
+			sourceTree = "<group>";
+		};
+		072C2DCFAC263770F20732B6050F9619 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B9D7A304A3FFA644B7EC0D522D799 /* Info.plist */,
+				D7CADCFD725DCA5268115B6C026DCE7C /* Theo.modulemap */,
+				FF862513D65778F267377C0E7D15E0B8 /* Theo.xcconfig */,
+				4178F557842EAF10009A888682A6BFB0 /* Theo-dummy.m */,
+				CEE2272995C556FFD503B77EA927DDAD /* Theo-prefix.pch */,
+				0B24ABFF541B2C464539B6DC67A3B06A /* Theo-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Theo";
+			sourceTree = "<group>";
+		};
+		0A289E144746B15091F023265D8AE3FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7D28729E3CB815B757E8094AB45CDCB /* BlueSocket */,
+				884E62193CEEF9D0737C04DB5CBE5948 /* BlueSSLService */,
+				4F6557B7E1D83BAB50E7B47C31F9B786 /* BoltProtocol */,
+				26EE590DA67C8702F5AAA878DB0CE151 /* PackStream */,
+				CF327CF7C2913A2EE7AC2242D5E7E93D /* Result */,
+				80A6D3999012F590C43BEB67670DFBE2 /* Theo */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		26EE590DA67C8702F5AAA878DB0CE151 /* PackStream */ = {
+			isa = PBXGroup;
+			children = (
+				566B6308DDEFF6EA87FBDEAE89B38D04 /* Bool.swift */,
+				7C3B3712E0F46FB3ECFA6953A844C936 /* Float.swift */,
+				898078EE047D24EEF59D98DE262AD398 /* Int.swift */,
+				9A51B8DADEF868C8FBAFE7C5001ED7EF /* List.swift */,
+				FDD0777C001384EA74AA47059A3BFFCB /* Map.swift */,
+				550A9D317E7D7799BB010861C735295A /* Null.swift */,
+				DDC9B426CFEC9A5ECCA747AC44C74DE5 /* Packer.swift */,
+				1864F3A16D7E6EEFF0349123A23BF9B3 /* PackProtocol.swift */,
+				25912AF965EC466653497CF6439E33F6 /* String.swift */,
+				32D8568C092B628317142EE94C959316 /* Structure.swift */,
+				A1D0D95E4EAF93CA8336778DDEB1BDC3 /* Support Files */,
+			);
+			path = PackStream;
+			sourceTree = "<group>";
+		};
+		28D31C44EC4F62E461B0C80705A57347 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				598116C5F38734917CC95C95283F3BB9 /* BlueSSLService.modulemap */,
+				304752371F51AF8FEBB8FAF4E48B60A0 /* BlueSSLService.xcconfig */,
+				EAE7EE94A0514ECD891C0B702EB90117 /* BlueSSLService-dummy.m */,
+				CF689AED0CC56606CE4B4A78C4EB8D1F /* BlueSSLService-prefix.pch */,
+				8096206B5A42E92C06365302E41A61D4 /* BlueSSLService-umbrella.h */,
+				6D925EE414BD93AA3F251A088AE0BADD /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BlueSSLService";
+			sourceTree = "<group>";
+		};
+		4335238D9BF8254847EE716FBC80C04E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF5EE73B93F97E0CDE2104F23506D023 /* BlueSocket.modulemap */,
+				DA0C630A29DE31DAB242D8EF1550EA58 /* BlueSocket.xcconfig */,
+				7C9DF3335CFF8289D70C12E5B8C4ED36 /* BlueSocket-dummy.m */,
+				628AC514595B8DCBE2C86C97A67E1F73 /* BlueSocket-prefix.pch */,
+				17F2D701C646755D39A0AB73F09895D8 /* BlueSocket-umbrella.h */,
+				D12003DC91AB260783630750EF537F59 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BlueSocket";
+			sourceTree = "<group>";
+		};
+		4F6557B7E1D83BAB50E7B47C31F9B786 /* BoltProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				064ECD2A74C852B6C53B6D959E7E9565 /* Connection.swift */,
+				8330B90BBA1A24055D5CEBF612148493 /* ConnectionSettings.swift */,
+				E0C5C9C3C9C53908D714FCEF20481224 /* EncryptedSocket.swift */,
+				E8B93A6E077F6940531448E204D19794 /* Request.swift */,
+				1F695DADC003872831439581AFCD43D5 /* Response.swift */,
+				2FCB26A1A187A12D758789FAE4B92FAD /* SocketProtocol.swift */,
+				F674F05813070B65B53678846FD0E629 /* SSLConfiguration.swift */,
+				80AC4F4E09AD4D02C465C8A976F627B2 /* SSLKeyGeneratorConfig.swift */,
+				B94B5AAF6345C2A1A7F3FFD062C51A6B /* UnencryptedSocket.swift */,
+				A4D2A28793BCE28C2CFE6AF449613A2E /* Support Files */,
+			);
+			path = BoltProtocol;
+			sourceTree = "<group>";
+		};
+		5A8113F29255210A154B9C5F934C3046 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9AFD95A94A82B513E5D6C1504603E71 /* Bolt.framework */,
+				F98FF7B816C71988AC93FFB427D6C60A /* PackStream.framework */,
+				32B8F59748FCF7289E2E58D1EB6D2958 /* Pods_Main_Project.framework */,
+				7F3C41FC644F4DE6EE735AB604E502A7 /* Result.framework */,
+				4B3CF4EED578F0D783A83926F4501D0B /* Socket.framework */,
+				BD55F60BD468DC8478A71DB8C0DEE74B /* SSLService.framework */,
+				C6B9C53617A61280BCF4F980895CF47F /* Theo.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				F4EA89526AB2046278F7D111E45A4FAC /* Frameworks */,
+				0A289E144746B15091F023265D8AE3FC /* Pods */,
+				5A8113F29255210A154B9C5F934C3046 /* Products */,
+				DADDEE7B85D62C1B5EA10B80EC958341 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		80A6D3999012F590C43BEB67670DFBE2 /* Theo */ = {
+			isa = PBXGroup;
+			children = (
+				CACF5DFF7749ADB7F9FAFEAF5CD93A05 /* BoltClient.swift */,
+				9FDFB8B156094C1BBDF6DA582A6DF2B2 /* ClientConfigurationProtocol.swift */,
+				47D3FAE50EA0EB18C3963FD664C8E195 /* Errors.swift */,
+				C9FFD81CF248115E09B2E709843EC87F /* JSONClientConfiguration.swift */,
+				6374979BD85CBF99F260AE22181AD0D4 /* Node.swift */,
+				9D530DF5C80BB97866C8E53338E6D07C /* Path.swift */,
+				7218A27306DBC1220485E45234AACD65 /* QueryResult.swift */,
+				CD276D762B40F8087A693B5B0A54D4BF /* QueryStats.swift */,
+				E820F9FA8BF9E4D14AD001FBBDB500EA /* QuerySummary.swift */,
+				7608DAD9BF82195F0123FF81BC0E2558 /* QueryType.swift */,
+				0C49C181C293B40381C86078173BF3D5 /* Record.swift */,
+				57F308A8DDDD3211C5ED69DAFA143818 /* Relationship.swift */,
+				A883DF94B6428FAC8B315D8C2F4D11DA /* StringProtocol.swift */,
+				9D05F2EF9152C659A61C632EF0D10B6B /* UnboundRelationship.swift */,
+				072C2DCFAC263770F20732B6050F9619 /* Support Files */,
+			);
+			path = Theo;
+			sourceTree = "<group>";
+		};
+		884E62193CEEF9D0737C04DB5CBE5948 /* BlueSSLService */ = {
+			isa = PBXGroup;
+			children = (
+				B1827C99C0EDE85B51183FA0A5F348FF /* SSLService.swift */,
+				28D31C44EC4F62E461B0C80705A57347 /* Support Files */,
+			);
+			path = BlueSSLService;
+			sourceTree = "<group>";
+		};
+		A1D0D95E4EAF93CA8336778DDEB1BDC3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F39579E50CE099A8F8306A9EBA73D316 /* Info.plist */,
+				49428139A05296E4E81A2A94716F8C81 /* PackStream.modulemap */,
+				AB14B894A7765C63394696EC0F6592F8 /* PackStream.xcconfig */,
+				CCDF0BADE2D3F302D850B389B3FF5887 /* PackStream-dummy.m */,
+				896C9E0BD6F8EA861DC56FBB4898E688 /* PackStream-prefix.pch */,
+				7BC8EF1CB773142FA06F48BE0CA1B232 /* PackStream-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PackStream";
+			sourceTree = "<group>";
+		};
+		A4D2A28793BCE28C2CFE6AF449613A2E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA49598CC4287099559F7ED5DC83C744 /* BoltProtocol.modulemap */,
+				F9D4A061C3CAA60DA31E78A20442F114 /* BoltProtocol.xcconfig */,
+				F46C9A6D75C21367FEE7616BA07D8DCA /* BoltProtocol-dummy.m */,
+				7811C462D10C67190E6332AFDD7D7A39 /* BoltProtocol-prefix.pch */,
+				06586AF0973811980AFF4C599F8AD33D /* BoltProtocol-umbrella.h */,
+				056EBE23A70BB140DA5E256BACD36ADA /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BoltProtocol";
+			sourceTree = "<group>";
+		};
+		B7D28729E3CB815B757E8094AB45CDCB /* BlueSocket */ = {
+			isa = PBXGroup;
+			children = (
+				55E819239D6DBCF36732A27497BA5B32 /* Socket.swift */,
+				0FF16834566880A4B9C4AD02D1FF28CC /* SocketProtocols.swift */,
+				A85535220A53C996717EF8BF968CE5D0 /* SocketUtils.swift */,
+				4335238D9BF8254847EE716FBC80C04E /* Support Files */,
+			);
+			path = BlueSocket;
+			sourceTree = "<group>";
+		};
+		CF327CF7C2913A2EE7AC2242D5E7E93D /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				79D6231AD21546AF3A98854164E8B06B /* Result.swift */,
+				44E19A7AC7CCDF5D1F3C5AB11CD31547 /* ResultProtocol.swift */,
+				05E37097F51C1F22C32A07196630B845 /* Support Files */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		DA697D8CA297EF145CADF4CE62FF5E22 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F4A68A3145C899D2D10FD5E49A85E230 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DADDEE7B85D62C1B5EA10B80EC958341 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				061122BF67B62CEF4952842BF5B40B47 /* Pods-Main_Project */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F4EA89526AB2046278F7D111E45A4FAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B679FDD12029F95D00C0C878 /* Socket.framework */,
+				B679FDD82029F99000C0C878 /* Bolt.framework */,
+				B679FDD52029F97900C0C878 /* SSLService.framework */,
+				B679FDDA2029F9A600C0C878 /* PackStream.framework */,
+				B679FDDD2029F9B200C0C878 /* Result.framework */,
+				DA697D8CA297EF145CADF4CE62FF5E22 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		41E5409FC3581BB4D0DB14A10F87A9D1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C10246C28E1226220BB39940C66FB8F8 /* Result-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D4D3139A8AE3B027E150B0CA36DE95B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70119679E2ECF3FA522075C2050D96F3 /* BlueSocket-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D39F0E3E8C8E61873439F81A529A260 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CD74FD0C8893F799C60FFD1D567ACF4 /* BlueSSLService-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8740E74E154A78B72F6621FEDB2DA535 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50B94A25B1BD1DB3D722B35D75436A46 /* Pods-Main_Project-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B36760FD81A197617CC27830C7480900 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A992A06817DC1A42CF02D024B9D3D2D8 /* BoltProtocol-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA470D12FD4BA471309BD5AC289D282F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60CD0268F3E8C14F43AB6D6F9C27139F /* PackStream-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24F5F7790E167F92E45F89F62D80E17 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DA973F643363AF61FC4E7A80EBF6D0 /* Theo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0063A6744215A5E1445118A566051117 /* PackStream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C1F29104750E72AB81C2A24F3B5BEFA /* Build configuration list for PBXNativeTarget "PackStream" */;
+			buildPhases = (
+				3A63E43589B5124F41F8E304018E1D10 /* Sources */,
+				6F16F5D53462B0D047EADF99550B421C /* Frameworks */,
+				BA470D12FD4BA471309BD5AC289D282F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PackStream;
+			productName = PackStream;
+			productReference = F98FF7B816C71988AC93FFB427D6C60A /* PackStream.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		044760C6327621F4E7C13C9AEB884D81 /* BlueSSLService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1237DE2BAFDEA5E03F8173E56BBC0FD /* Build configuration list for PBXNativeTarget "BlueSSLService" */;
+			buildPhases = (
+				687D798AB28A4BAD254308751C047AD7 /* Sources */,
+				504DC5755C9004DF17848ADAE142BE7F /* Frameworks */,
+				7D39F0E3E8C8E61873439F81A529A260 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF14E58EE0430C7CEA99B16C6446BD65 /* PBXTargetDependency */,
+			);
+			name = BlueSSLService;
+			productName = BlueSSLService;
+			productReference = BD55F60BD468DC8478A71DB8C0DEE74B /* SSLService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		08295AF7C055BEA8AFBE51D63CEBA212 /* Theo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E23A21FC9CD3AD7BC2884919DEFF7D6 /* Build configuration list for PBXNativeTarget "Theo" */;
+			buildPhases = (
+				BB28801E97AE3564656E5AE0FC758BF2 /* Sources */,
+				ABB52FFF0C38A064FBB30FC21FBF059D /* Frameworks */,
+				C24F5F7790E167F92E45F89F62D80E17 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64E4442CE6445C6465CEDCE415801375 /* PBXTargetDependency */,
+				C3DE7AD37103E185A3CDC8CDA7EA3883 /* PBXTargetDependency */,
+				ABD271A26E792C7D6D278EE3FE632B59 /* PBXTargetDependency */,
+				270AF0C2FDB9EE244E0913E957B3F679 /* PBXTargetDependency */,
+				A4A79078DFD45D914D199BBD2806343B /* PBXTargetDependency */,
+			);
+			name = Theo;
+			productName = Theo;
+			productReference = C6B9C53617A61280BCF4F980895CF47F /* Theo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1053405F1F7488B4AD94BD05AC90814D /* BlueSocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 144F6878767568E5277D30049E90B28D /* Build configuration list for PBXNativeTarget "BlueSocket" */;
+			buildPhases = (
+				E6AD96B4663FB4D22595F718A09A0B1E /* Sources */,
+				5BC9B5D25E58D12BF13B4EE384DEEE0E /* Frameworks */,
+				6D4D3139A8AE3B027E150B0CA36DE95B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlueSocket;
+			productName = BlueSocket;
+			productReference = 4B3CF4EED578F0D783A83926F4501D0B /* Socket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1DD403176A72585AFC4867EB8F3BFBD6 /* Pods-Main_Project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBFA7408A363A0003FD3F0DBCBF90D0C /* Build configuration list for PBXNativeTarget "Pods-Main_Project" */;
+			buildPhases = (
+				A2606CBDF340C1AD8083F0E15D8C2856 /* Sources */,
+				34CFD432423D71D3766A20F81CA2FA30 /* Frameworks */,
+				8740E74E154A78B72F6621FEDB2DA535 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FA163F1614E2DBC9FD096FED3B82E73 /* PBXTargetDependency */,
+				F8082183145BFD672DF04F761A117EAF /* PBXTargetDependency */,
+				C343D0D30855A5BDCB74F79588BBED43 /* PBXTargetDependency */,
+				800F54180D7E454D3EDEA86F7C47BF92 /* PBXTargetDependency */,
+				5A7FF172A022160087EEDD3FBFD1DB13 /* PBXTargetDependency */,
+				C7F958E39E9063C46DBDE7E1DFB8EA13 /* PBXTargetDependency */,
+			);
+			name = "Pods-Main_Project";
+			productName = "Pods-Main_Project";
+			productReference = 32B8F59748FCF7289E2E58D1EB6D2958 /* Pods_Main_Project.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE99CFA2079F03F84EA7C6630E6B8B25 /* BoltProtocol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E81D25DDACD840A74AC31D64EBA13E24 /* Build configuration list for PBXNativeTarget "BoltProtocol" */;
+			buildPhases = (
+				02399DA279C6AB99EF140A7FEF485251 /* Sources */,
+				8AB360558C9B4C55310C0A0A2A822114 /* Frameworks */,
+				B36760FD81A197617CC27830C7480900 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97D223D1415AEE402E91166D438C1A7C /* PBXTargetDependency */,
+				D4036F6270F093162C6C3BE920F89F7F /* PBXTargetDependency */,
+				268E8646FF9A4D51C3F9A236BDD293A9 /* PBXTargetDependency */,
+			);
+			name = BoltProtocol;
+			productName = BoltProtocol;
+			productReference = E9AFD95A94A82B513E5D6C1504603E71 /* Bolt.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F8CA3578C0213E0E875C0B91CF2BBDD5 /* Result */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 364111AFD95680DB59D442D971653DC7 /* Build configuration list for PBXNativeTarget "Result" */;
+			buildPhases = (
+				B4233915C1B86CC6D6466A4DF321600C /* Sources */,
+				DBDFCFC2B007ECBF1A2D179B99238F7D /* Frameworks */,
+				41E5409FC3581BB4D0DB14A10F87A9D1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Result;
+			productName = Result;
+			productReference = 7F3C41FC644F4DE6EE735AB604E502A7 /* Result.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 5A8113F29255210A154B9C5F934C3046 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1053405F1F7488B4AD94BD05AC90814D /* BlueSocket */,
+				044760C6327621F4E7C13C9AEB884D81 /* BlueSSLService */,
+				BE99CFA2079F03F84EA7C6630E6B8B25 /* BoltProtocol */,
+				0063A6744215A5E1445118A566051117 /* PackStream */,
+				1DD403176A72585AFC4867EB8F3BFBD6 /* Pods-Main_Project */,
+				F8CA3578C0213E0E875C0B91CF2BBDD5 /* Result */,
+				08295AF7C055BEA8AFBE51D63CEBA212 /* Theo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02399DA279C6AB99EF140A7FEF485251 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7F3A5778839F4CDC80F933767816FC /* BoltProtocol-dummy.m in Sources */,
+				ECA7746412AA67799CA838D99C144496 /* Connection.swift in Sources */,
+				5485D184A57D640A697DACD5AA9EF95F /* ConnectionSettings.swift in Sources */,
+				3B735BBEBC3BED90133A076ED0A82E91 /* EncryptedSocket.swift in Sources */,
+				CA929E18C40D875B897B8B0BC395E655 /* Request.swift in Sources */,
+				9795796357805EDD1803DFE88AE69E5F /* Response.swift in Sources */,
+				68EB5C1ED9DDB77E4BF642D6D061AFE8 /* SocketProtocol.swift in Sources */,
+				6C5FEC5DBC4E2DDAD2CE38E6316087BF /* SSLConfiguration.swift in Sources */,
+				9B6234C6E21F452634BA3DB6473C88BD /* SSLKeyGeneratorConfig.swift in Sources */,
+				95CF91B6BD11FC7C4F0D3919F699A7E5 /* UnencryptedSocket.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A63E43589B5124F41F8E304018E1D10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F3F28C474D7A1F8A5D53DAB34B09517 /* Bool.swift in Sources */,
+				DBAFABFBC7892E92117AB285D02462BF /* Float.swift in Sources */,
+				6600361ECFBB3486D4607AF804AD62D7 /* Int.swift in Sources */,
+				978B616DC920A9A6A0A886E899794A3A /* List.swift in Sources */,
+				930D62AFBB64B39372C3118089A28B14 /* Map.swift in Sources */,
+				3B7602C417EAA802CD4346752764D175 /* Null.swift in Sources */,
+				D72E095BCF9D8BE7A4A94BBCEB9C570C /* Packer.swift in Sources */,
+				702684001ABE8D1ABEF0020C565A6217 /* PackProtocol.swift in Sources */,
+				F17271FBEC0069490BD34A981C9B53FD /* PackStream-dummy.m in Sources */,
+				EBFE4F520FE826FC022830FB97DA593B /* String.swift in Sources */,
+				4DD4B5F04566F7797513FD247EA2CB81 /* Structure.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687D798AB28A4BAD254308751C047AD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35A0B12574F0BABB945B4EA2808813D5 /* BlueSSLService-dummy.m in Sources */,
+				D5046688E26DE57864ED83C0E0EC30A1 /* SSLService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2606CBDF340C1AD8083F0E15D8C2856 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F782F150CB537DB00A5572F9170EA65 /* Pods-Main_Project-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4233915C1B86CC6D6466A4DF321600C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70C5E8182751F899AFA2C882A685DCE6 /* Result-dummy.m in Sources */,
+				E11C66F22D8E81378B518241B4197498 /* Result.swift in Sources */,
+				D17AD0378BE52D36A22360F23D3F6A66 /* ResultProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB28801E97AE3564656E5AE0FC758BF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CE9AEFF18B938F90A47B59520DB964A /* BoltClient.swift in Sources */,
+				F528803BDC0C635DFAC1E15337158043 /* ClientConfigurationProtocol.swift in Sources */,
+				BD7908F4650AF1BDB88E2B5BC1081660 /* Errors.swift in Sources */,
+				4CEF47D64CD8B9B1FB5E68B4D92FC6E8 /* JSONClientConfiguration.swift in Sources */,
+				0F55C4A6861F46FBFAD4CDFDBEF61498 /* Node.swift in Sources */,
+				71899BDC51AFE2C411A7D1CA89762B1B /* Path.swift in Sources */,
+				2071F173074C414EA547B7F5C78C7A58 /* QueryResult.swift in Sources */,
+				E52D44E6DB3F96F6108E8776FDCD1052 /* QueryStats.swift in Sources */,
+				3072ED027B0EC789208042B6D6D0B4D3 /* QuerySummary.swift in Sources */,
+				721C50B480EAE5FDC487AC83E1C91B3E /* QueryType.swift in Sources */,
+				44D9FD758C53202FE2701E2F35A5F0F5 /* Record.swift in Sources */,
+				4E9FC1D876CE2BA4E553FDB9CA12F306 /* Relationship.swift in Sources */,
+				4981CF3E9BCBDE32267D615316FAEB35 /* StringProtocol.swift in Sources */,
+				F69224A72E0FFA60096843E62F144EF7 /* Theo-dummy.m in Sources */,
+				CC6E5595632108FDFB90EFEF63CBCF33 /* UnboundRelationship.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6AD96B4663FB4D22595F718A09A0B1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				816BA5B8B6767F81C3934B661E1071AC /* BlueSocket-dummy.m in Sources */,
+				2E1A2D967C45F640F5DE6BC8AEDB69DB /* Socket.swift in Sources */,
+				5EE2228BBAB5622594FE123098054E99 /* SocketProtocols.swift in Sources */,
+				24B6656F5497464E60AADCA28936F71B /* SocketUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FA163F1614E2DBC9FD096FED3B82E73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlueSSLService;
+			target = 044760C6327621F4E7C13C9AEB884D81 /* BlueSSLService */;
+			targetProxy = 0F010B5A0F243493B09184E7678F8E9E /* PBXContainerItemProxy */;
+		};
+		268E8646FF9A4D51C3F9A236BDD293A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PackStream;
+			target = 0063A6744215A5E1445118A566051117 /* PackStream */;
+			targetProxy = C9A9EBD472120CE921FA80350F8A4A4B /* PBXContainerItemProxy */;
+		};
+		270AF0C2FDB9EE244E0913E957B3F679 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PackStream;
+			target = 0063A6744215A5E1445118A566051117 /* PackStream */;
+			targetProxy = 719227364340BCF9728FC4EF71159224 /* PBXContainerItemProxy */;
+		};
+		5A7FF172A022160087EEDD3FBFD1DB13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Result;
+			target = F8CA3578C0213E0E875C0B91CF2BBDD5 /* Result */;
+			targetProxy = B19ED60EDFB756E98D7AB1718B0B9BF0 /* PBXContainerItemProxy */;
+		};
+		64E4442CE6445C6465CEDCE415801375 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlueSSLService;
+			target = 044760C6327621F4E7C13C9AEB884D81 /* BlueSSLService */;
+			targetProxy = D974E87B2AF0564D89121329155F6F38 /* PBXContainerItemProxy */;
+		};
+		800F54180D7E454D3EDEA86F7C47BF92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PackStream;
+			target = 0063A6744215A5E1445118A566051117 /* PackStream */;
+			targetProxy = E1AE1AE360442FC65349204A9F83F69A /* PBXContainerItemProxy */;
+		};
+		97D223D1415AEE402E91166D438C1A7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlueSSLService;
+			target = 044760C6327621F4E7C13C9AEB884D81 /* BlueSSLService */;
+			targetProxy = 2296DAB848E9F4FA1F6D0AE10CD2EDB0 /* PBXContainerItemProxy */;
+		};
+		A4A79078DFD45D914D199BBD2806343B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Result;
+			target = F8CA3578C0213E0E875C0B91CF2BBDD5 /* Result */;
+			targetProxy = CC3FA9F7EB190146BDAE818BD5B9606E /* PBXContainerItemProxy */;
+		};
+		ABD271A26E792C7D6D278EE3FE632B59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BoltProtocol;
+			target = BE99CFA2079F03F84EA7C6630E6B8B25 /* BoltProtocol */;
+			targetProxy = 5866114D5E2E7D6F4AA6A78623C5EE14 /* PBXContainerItemProxy */;
+		};
+		C343D0D30855A5BDCB74F79588BBED43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BoltProtocol;
+			target = BE99CFA2079F03F84EA7C6630E6B8B25 /* BoltProtocol */;
+			targetProxy = 9D17297F59F3835E5E659ABF88E4CE2C /* PBXContainerItemProxy */;
+		};
+		C3DE7AD37103E185A3CDC8CDA7EA3883 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlueSocket;
+			target = 1053405F1F7488B4AD94BD05AC90814D /* BlueSocket */;
+			targetProxy = 30124BE02F602D8F4A61C27AA4B85B6A /* PBXContainerItemProxy */;
+		};
+		C7F958E39E9063C46DBDE7E1DFB8EA13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Theo;
+			target = 08295AF7C055BEA8AFBE51D63CEBA212 /* Theo */;
+			targetProxy = A19555AA77F002EC32540FD27D77AA9A /* PBXContainerItemProxy */;
+		};
+		D4036F6270F093162C6C3BE920F89F7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlueSocket;
+			target = 1053405F1F7488B4AD94BD05AC90814D /* BlueSocket */;
+			targetProxy = E92B92E2A69183DDE25ABC287FD3EBB9 /* PBXContainerItemProxy */;
+		};
+		F8082183145BFD672DF04F761A117EAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlueSocket;
+			target = 1053405F1F7488B4AD94BD05AC90814D /* BlueSocket */;
+			targetProxy = DAC95D07D94B444DEC89AE6C7C22EA95 /* PBXContainerItemProxy */;
+		};
+		FF14E58EE0430C7CEA99B16C6446BD65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlueSocket;
+			target = 1053405F1F7488B4AD94BD05AC90814D /* BlueSocket */;
+			targetProxy = 967C510B5396D0EF2660279204092063 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		06A5D3AF4E11C4D4A4381E9D040DB9EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB14B894A7765C63394696EC0F6592F8 /* PackStream.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PackStream/PackStream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PackStream/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PackStream/PackStream.modulemap";
+				PRODUCT_NAME = PackStream;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		10DD68C43C81F86949CB669BF7C5554E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 304752371F51AF8FEBB8FAF4E48B60A0 /* BlueSSLService.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/BlueSSLService/BlueSSLService-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlueSSLService/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BlueSSLService/BlueSSLService.modulemap";
+				PRODUCT_NAME = SSLService;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		19B203DE2A24CFAAA4CF27972D0C69DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D4A061C3CAA60DA31E78A20442F114 /* BoltProtocol.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/BoltProtocol/BoltProtocol-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BoltProtocol/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BoltProtocol/BoltProtocol.modulemap";
+				PRODUCT_NAME = Bolt;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1F9D34AE44DCBDF35D20505DD9B1FA49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF862513D65778F267377C0E7D15E0B8 /* Theo.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/Theo/Theo-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Theo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Theo/Theo.modulemap";
+				PRODUCT_NAME = Theo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		373EEC916D72256E0E320718B9C723EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 304752371F51AF8FEBB8FAF4E48B60A0 /* BlueSSLService.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/BlueSSLService/BlueSSLService-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlueSSLService/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BlueSSLService/BlueSSLService.modulemap";
+				PRODUCT_NAME = SSLService;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3856AA315112E66192AF03F10C95B8DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C9B4EB9C0742FFD966378C5BB9C8D68 /* Result.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Result/Result-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Result/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Result/Result.modulemap";
+				PRODUCT_NAME = Result;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		440C8C8801360DD5E3EC0F5D4EFAED67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA0C630A29DE31DAB242D8EF1550EA58 /* BlueSocket.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BlueSocket/BlueSocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlueSocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BlueSocket/BlueSocket.modulemap";
+				PRODUCT_NAME = Socket;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D1A395AF1EFD18D1D1CA468E1BB61C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C9B4EB9C0742FFD966378C5BB9C8D68 /* Result.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Result/Result-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Result/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Result/Result.modulemap";
+				PRODUCT_NAME = Result;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		60D7566DF3851E7B8E349BB063C7AA94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DBCD3C7C47655CE4A7B21E1CE8725ED /* Pods-Main_Project.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Main_Project/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Main_Project/Pods-Main_Project.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Main_Project;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7C07ED8089F70A31B83996A8910D7F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		8662145182C85B5036B7587C9ECC33C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF862513D65778F267377C0E7D15E0B8 /* Theo.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/Theo/Theo-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Theo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Theo/Theo.modulemap";
+				PRODUCT_NAME = Theo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98F29E7567052F62660DDD7069ADF73C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		AC2CF64CCACAF513B3190953BD32B0FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA0C630A29DE31DAB242D8EF1550EA58 /* BlueSocket.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BlueSocket/BlueSocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlueSocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BlueSocket/BlueSocket.modulemap";
+				PRODUCT_NAME = Socket;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B01BE7BBEB4AA855445E89CE6E4FA25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB14B894A7765C63394696EC0F6592F8 /* PackStream.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PackStream/PackStream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PackStream/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PackStream/PackStream.modulemap";
+				PRODUCT_NAME = PackStream;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CBD1F2FFB37A3C03E7A89B4125F206CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D4A061C3CAA60DA31E78A20442F114 /* BoltProtocol.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/BoltProtocol/BoltProtocol-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BoltProtocol/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BoltProtocol/BoltProtocol.modulemap";
+				PRODUCT_NAME = Bolt;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CD7C0610EB6E0AB12FC0750D83A54B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E06B074CF5EBDC4C37EE1557AEE479 /* Pods-Main_Project.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Main_Project/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Main_Project/Pods-Main_Project.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Main_Project;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		144F6878767568E5277D30049E90B28D /* Build configuration list for PBXNativeTarget "BlueSocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC2CF64CCACAF513B3190953BD32B0FE /* Debug */,
+				440C8C8801360DD5E3EC0F5D4EFAED67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C07ED8089F70A31B83996A8910D7F18 /* Debug */,
+				98F29E7567052F62660DDD7069ADF73C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		364111AFD95680DB59D442D971653DC7 /* Build configuration list for PBXNativeTarget "Result" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D1A395AF1EFD18D1D1CA468E1BB61C3 /* Debug */,
+				3856AA315112E66192AF03F10C95B8DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E23A21FC9CD3AD7BC2884919DEFF7D6 /* Build configuration list for PBXNativeTarget "Theo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F9D34AE44DCBDF35D20505DD9B1FA49 /* Debug */,
+				8662145182C85B5036B7587C9ECC33C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C1F29104750E72AB81C2A24F3B5BEFA /* Build configuration list for PBXNativeTarget "PackStream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06A5D3AF4E11C4D4A4381E9D040DB9EE /* Debug */,
+				B01BE7BBEB4AA855445E89CE6E4FA25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1237DE2BAFDEA5E03F8173E56BBC0FD /* Build configuration list for PBXNativeTarget "BlueSSLService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				373EEC916D72256E0E320718B9C723EC /* Debug */,
+				10DD68C43C81F86949CB669BF7C5554E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBFA7408A363A0003FD3F0DBCBF90D0C /* Build configuration list for PBXNativeTarget "Pods-Main_Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD7C0610EB6E0AB12FC0750D83A54B56 /* Debug */,
+				60D7566DF3851E7B8E349BB063C7AA94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E81D25DDACD840A74AC31D64EBA13E24 /* Build configuration list for PBXNativeTarget "BoltProtocol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBD1F2FFB37A3C03E7A89B4125F206CD /* Debug */,
+				19B203DE2A24CFAAA4CF27972D0C69DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

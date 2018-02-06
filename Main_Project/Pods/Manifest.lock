@@ -1,0 +1,28 @@
+PODS:
+  - BlueSocket (0.12.87)
+  - BlueSSLService (0.12.77):
+    - BlueSocket (~> 0.12.87)
+  - BoltProtocol (1.0.0):
+    - BlueSocket (~> 0.12.87)
+    - BlueSSLService (~> 0.12.77)
+    - PackStream (~> 1.0.0)
+  - PackStream (1.0.0)
+  - Result (3.2.4)
+  - Theo (4.0.0):
+    - BoltProtocol (~> 1.0.0)
+    - Result (~> 3.2.4)
+
+DEPENDENCIES:
+  - Theo
+
+SPEC CHECKSUMS:
+  BlueSocket: 65b8de89a969c5f0b5993950aab1ee4cfbff7643
+  BlueSSLService: 1adef6e0953e7cb5ea5673e2bbe96f2c44620b19
+  BoltProtocol: 109169dda948a1939753ec574b6ab8dd90c427c6
+  PackStream: 971953d6a9e0bc1c4f3a9fafd8c7f42d92291958
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  Theo: 65e81eab88543f3fc31790814bf296418e5f12dd
+
+PODFILE CHECKSUM: 22bd969e68af3c96209acecf67bffa1d252028dc
+
+COCOAPODS: 1.4.0

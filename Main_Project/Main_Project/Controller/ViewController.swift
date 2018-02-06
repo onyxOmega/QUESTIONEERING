@@ -12,6 +12,9 @@ let session = SManager()
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
     override func loadView() {
         super.loadView()
         print(session)
@@ -27,5 +30,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func loginButton(_ sender: Any) {
+        _ = session.loginUser(withEmail: email.text!, withPassword: password.text!)
+    }
 }
-

@@ -21,20 +21,8 @@ class SManager {
     let db = DBInterface()
     
     func loginUser(withEmail email: String, withPassword password: String) -> User{
-        let properties: [String:PackProtocol] = [
-            "primary_email": email, "password": password]
-        db.client.nodesWith(label: "User", andProperties: properties){result in
-            switch result{
-                case let .failure(error): print(error)
-                case let .success(response): print(response)
-            }
-            
-            
-            
-            print("Found \(result.value?.count ?? 0) nodes")
-        }
-        let user = User()
-        
+        var user = User()
+        user.firstName = db.authenticate(email, password)
         return user
     }
     

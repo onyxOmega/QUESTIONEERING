@@ -48,6 +48,9 @@ class ViewController: UIViewController {
 
     @IBAction func signIn(_ sender: Any) {
         let sessionUser = session.loginUser(withEmail: usernameTextField.text!, withPassword: passwordTextField.text!)
-        welcomeLabel.text = "Hello, \(sessionUser.firstName!)!"
+        
+        let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+        
+        self.present(profileViewController, animated: true, completion: nil)
     }
 }

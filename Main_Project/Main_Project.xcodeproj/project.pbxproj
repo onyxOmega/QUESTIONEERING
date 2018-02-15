@@ -15,6 +15,7 @@
 		B679FDE42029FA9B00C0C878 /* DBInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679FDE32029FA9B00C0C878 /* DBInterface.swift */; };
 		B679FDE62029FAEE00C0C878 /* SManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679FDE52029FAEE00C0C878 /* SManager.swift */; };
 		B679FDFC202A2C4400C0C878 /* Pods_Main_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B679FDFB202A2C4400C0C878 /* Pods_Main_Project.framework */; };
+		B6DDF5D8202BB950000F0C3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DDF5D7202BB950000F0C3F /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B679FDE32029FA9B00C0C878 /* DBInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBInterface.swift; sourceTree = "<group>"; };
 		B679FDE52029FAEE00C0C878 /* SManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SManager.swift; sourceTree = "<group>"; };
 		B679FDFB202A2C4400C0C878 /* Pods_Main_Project.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_Main_Project.framework; sourceTree = "<group>"; };
+		B6DDF5D7202BB950000F0C3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				B2ABC44D2027D6F000A2BA5E /* AppDelegate.swift */,
 				B2ABC44F2027D6F000A2BA5E /* ViewController.swift */,
+				B6DDF5D7202BB950000F0C3F /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				B2ABC4502027D6F000A2BA5E /* ViewController.swift in Sources */,
 				B2ABC44E2027D6F000A2BA5E /* AppDelegate.swift in Sources */,
+				B6DDF5D8202BB950000F0C3F /* ProfileViewController.swift in Sources */,
 				B679FDE42029FA9B00C0C878 /* DBInterface.swift in Sources */,
 				B679FDE62029FAEE00C0C878 /* SManager.swift in Sources */,
 			);

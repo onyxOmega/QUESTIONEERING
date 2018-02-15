@@ -92,5 +92,20 @@
             </objects>
             <point key="canvasLocation" x="75.78125" y="129.4921875"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="GOk-b8-ddF">
+            <objects>
+                <viewController storyboardIdentifier="profileViewController" id="HYW-ur-iAY" customClass="ProfileViewController" customModule="Main_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WfW-O0-swc">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="va3-0a-dhE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYL-dC-EMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792" y="129"/>
+        </scene>
     </scenes>
 </document>

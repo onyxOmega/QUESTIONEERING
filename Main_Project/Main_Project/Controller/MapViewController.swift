@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class MapViewController: UIViewController {
+    
     
     override func loadView() {
         super.loadView()
@@ -23,6 +24,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let activeMap = session.getQRMap(mID: 0)
     }
     
     override func didReceiveMemoryWarning() {

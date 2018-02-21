@@ -35,25 +35,56 @@ class DBInterface{
         print(result)
     }
     
+    
     func authenticate(_ username: String,_ password: String) -> String{
-        var name = ""
+        var uName = ""
         let properties: [String:PackProtocol] = ["username": username.lowercased().trimmingCharacters(in: .whitespaces), "password": password]
         client.nodesWith(label: "User", andProperties: properties){result in
             switch result{
             case let .failure(error):
                 print(error)
-                name = ""
+                uName = ""
             case let .success(response):
                 print(response)
                 if result.value!.count > 0{
-                    name = response[0].properties["username"] as! String
+                    uName = response[0].properties["username"] as! String
                 }
                 else{
-                    name = ""
+                    uName = ""
                 }
             }
             print("Found \(result.value?.count ?? 0) nodes")
         }
-        return name
+        
+        return uName
+    }
+    
+    
+    
+    func getMapTitleByID(_ mID: Int)->String{
+        var title = ""
+        let properties: [String:PackProtocol] = ["mID": mID]
+        client.nodesWith(label: "Map", andProperties: properties){result in
+            switch result{
+            case let .failure(error):
+                print(error)
+            case let .success(response):
+                print(response)
+                if result.value!.count > 0{
+                    title = response[0].properties["name"] as! String
+                }
+                else{
+                    title = ""
+                }
+            }
+            print("Found \(result.value?.count ?? 0) nodes")
+        }
+        
+        return title
+    }
+    
+    
+    func getRootNode(mID:Int){
+        
     }
 }

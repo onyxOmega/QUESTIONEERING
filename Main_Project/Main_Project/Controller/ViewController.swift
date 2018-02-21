@@ -9,6 +9,7 @@
 import UIKit
 
 let session = SManager()
+var sessionUser = User()
 
 class ViewController: UIViewController {
 
@@ -47,10 +48,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signIn(_ sender: Any) {
-        let sessionUser = session.loginUser(withEmail: usernameTextField.text!, withPassword: passwordTextField.text!)
+        sessionUser = session.loginUser(withEmail: usernameTextField.text!, withPassword: passwordTextField.text!)
         
-        let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
         
-        self.present(profileViewController, animated: true, completion: nil)
+        self.present(mapViewController, animated: true, completion: nil)
     }
 }

@@ -11,6 +11,7 @@ import Theo
 import PackStream
 import Result
 
+
 enum RequestResult {
     // enumeration to return database requests for various purposes
     case error(String)
@@ -19,9 +20,9 @@ enum RequestResult {
 }
 
 class DBInterface{
-    
+
     let client : BoltClient
-    
+
     init(){
         /* Access point for initial test database
         client = try! BoltClient(hostname: "bolt://hobby-pgjikkipbdjdgbkejddbgnal.dbs.graphenedb.com",
@@ -30,36 +31,36 @@ class DBInterface{
                                  password: "b.IgGOR4248w64.eo9XziOkR198u1D9",
                                  encrypted: true)
          */
-        
+
         client = try! BoltClient(hostname: "bolt://hobby-bobjgmobpijggbkecdjnbnal.dbs.graphenedb.com",
                                  port: 24786,
                                  username: "ipadapp",
                                  password: "b.9j0gd1Y3czDb.qJeQUd6wPhdgauso",
                                  encrypted: true)
-        
-        
+
+
         let result = client.connectSync()
         print(result)
     }
-    
+
     // Note: This class probably redoes too much of the work from the original Theo
     // framework, but that's ok for now, because it's really helping me learn how
     // everything works in Swift
-    
+
     func authenticate(_ username: String,_ password: String) -> RequestResult {
-        
+
         let properties: [String:PackProtocol] = ["username": username.lowercased().trimmingCharacters(in: .whitespaces), "password": password]
         var validate : [RequestResult] = []
         client.nodesWith(label: "User", andProperties: properties){result in
             validate = self.validateNodeResult(result, isUnique: true)
         }
         return validate[0]
-        
+
     }
-    
-    
+
+
     func getMapProperties(byMapID mapID: Int) -> RequestResult{
-        
+
         let properties: [String:PackProtocol] = ["mID": mapID]
         var validate : [RequestResult] = []
         client.nodesWith(label: "Map", andProperties: properties){result in
@@ -67,12 +68,12 @@ class DBInterface{
         }
         return validate[0]
     }
-    
-    
+
+
     func getMapRoot(byMapID mapID: Int) -> RequestResult {
         // mID in the Database relates to mapID here.
         // Use different names to avoid syntax issues when passing parameters
-        
+
         let query = """
             MATCH (m:Map {mID: {mapID} })-[r:HAS_ROOT]->(rn:Node)
             RETURN rn
@@ -80,11 +81,11 @@ class DBInterface{
         let params: [String:PackProtocol] = ["mapID": mapID]
         let result = client.executeCypherSync(query, params: params)
         let validate = validateQueryResult(result, isUnique: true)
-        
+
         return validate[0]
     }
-    
-    
+
+
     func getChildren(byID nodeID: Int) -> [RequestResult]{
         let query = """
             MATCH (n:Node) WHERE ID(n) = {nID}
@@ -96,19 +97,19 @@ class DBInterface{
         let validate = validateQueryResult(result, isUnique: false)
         return validate
     }
-    
 
-    
+
+
     // This function validates and returns the results of a Cypher Query request
     func validateQueryResult(_ result: Result<QueryResult,AnyError>, isUnique: Bool)-> [RequestResult]{
-        
+
         var validate : [RequestResult] = [.invalid]
-        
+
         switch result{
-            
+
         case let .failure(error):
             print(error)
-            
+
         case let .success(response):
             if isUnique{
                 if response.nodes.count == 1 {
@@ -121,7 +122,7 @@ class DBInterface{
                     }
                 }
             }
-                
+
             else {
                 if response.nodes.count > 0 {
                     validate.removeAll()
@@ -138,12 +139,12 @@ class DBInterface{
                 }
             }
         }
-        
+
         return validate
     }
-    
-    
-    
+
+
+
     // This function validates and returns the results of a Theo Query request
     func validateNodeResult(_ result: Result<[Node], AnyError>, isUnique: Bool) -> [RequestResult]{
         var validate : [RequestResult] = [.invalid]
@@ -176,7 +177,7 @@ class DBInterface{
         return validate
     }
 
-    
+
 
 } // END OF DBINTERFACE CLASS
 
@@ -243,4 +244,3 @@ class DBInterface{
 //    }
 //    return validate
 //}
-

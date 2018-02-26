@@ -20,7 +20,7 @@ struct QNodeData{
     var context : String?
     var dateAsked : Date?
     var synopsis : String?
-    
+
     init(fromProperties properties: Dictionary<String, PackProtocol>){
         self.context = properties["context"] as? String
         self.dateAsked = properties["dateAsked"] as? Date
@@ -28,11 +28,12 @@ struct QNodeData{
     }
 }
 
+
 struct RNodeData{
     var url: URL?
     var notes: String?
     var dateAccessed: Date?
-    
+
     init(fromProperties properties: Dictionary<String, PackProtocol>){
         self.url = properties["url"] as? URL
         self.notes = properties["dateAsked"] as? String
@@ -48,43 +49,45 @@ struct QRNodePosition{
     var y: Int
 }
 
+
 class QRNode{
-    
+
     var id: Int
     var title: String
     var detail: String?
-    let type: NodeType
+    var type: NodeType
     var map : Int
     var gridPosition = QRNodePosition(x: 0, y: 0)
-    
+
     var children : [QRNode] = []
     var parent : QRNode?
-    
-    init?(fromProperties properties: Dictionary<String, PackProtocol>, inMap map: Int){
+
+    init?(fromProperties properties: Dictionary<String, PackProtocol>,
+          inMap map: Int){
         self.map = map
         var typeProperties = properties
         if let id = properties["id"] as? Int{
             self.id = id
             typeProperties.removeValue(forKey: "id")
         }
-            
+
         else{
             print("id fail");
             return nil
         }
-        
+
         if let title = properties["title"] as? String{
             self.title = title
             typeProperties.removeValue(forKey: "title")
         }
-            
+
         else{
             print("label fail"); return nil
         }
-        
+
         self.detail = properties["detail"] as? String
         typeProperties.removeValue(forKey: "detail")
-        
+
         // Check and see if there's context or a UUID to determine type
         if properties["context"] != nil{
             self.type = .qNode(QNodeData(fromProperties: typeProperties))
@@ -95,22 +98,36 @@ class QRNode{
     }
 }
 
+extension QRNode: CustomStringConvertible {
+
+    var description: String {
+
+        var text = "\(title)"
+
+
+        if !children.isEmpty {
+            text += " {" + children.map { $0.description }.joined(separator: ", ") + "} "
+        }
+        return text
+    }
+}
 
 
 class QRMap {
-    // Builds a tree data-structure containing all the Q and R nodes in the map
-    // A QRMap has a title, a description, an ID, and a node tree
-    // It uses the global "session" to talk to the database, which is only necessary
-    // durring initialization
-    
+    /*  Builds a tree data-structure containing all the Q and R nodes in the map
+        A QRMap has a title, a description, an ID, and a node tree
+        It uses the global "session" to talk to the database, which is only
+        necessary durring initialization */
+
+
     var title: String?
     let id: Int
     let session: Session
-    
+
     var tree: QRNode?
 
-    /*  The initializer only does enough work to display map information on the map list.
-        Loading actual map nodes comes later, when the map is selected. */
+    /*  The initializer only does enough work to display map information on the
+        map list. Loading actual map nodes comes later, when the map is selected. */
     init(withMapID mID:Int, forSession session: Session){
         self.id = mID
         self.session = session
@@ -129,20 +146,21 @@ class QRMap {
         }
         print(mapProperties)
     }
-    
-    
+
+
+
     /*  This function gets the root node, which gets all it's children recursively */
     func getRoot(){
         let root = session.db.getMapRoot(byMapID: self.id)
-        
+
         if let node = validateResult(root){
             node.children = getChildren(of: node)
             self.tree = node
             QRCartographer.setNodePositions(map: self)
         }
     }
-    
-    
+
+
     /*  This function recursively gets all descendent nodes from a starting node */
     func getChildren(of parentNode: QRNode) -> [QRNode]{
         let results = session.db.getChildren(byID: parentNode.id)
@@ -156,10 +174,10 @@ class QRMap {
         }
         return children
     }
-    
+
     func validateResult(_ result: RequestResult) -> QRNode?{
         var node: QRNode?
-        
+
         switch result {
         case let .error(error):
             print(error)
@@ -183,27 +201,29 @@ enum MatrixContents{
 }
 
 class QRCartographer{
-    /*  The cartographer makes the maps. Or at least lays them out, calculates coordinates, etc.
-        I don't think it will need instance variables. To start, I'm just going to set it up
-        to figure things out from a map data-structure*/
-    
+    /*  The cartographer makes the maps. Or at least lays them out, calculates
+        coordinates, etc. I don't think it will need instance variables. To
+        start, I'm just going to set it up to figure things out from a map
+        data-structure*/
+
     class func setNodePositions(map: QRMap){
         let xPositions = horizontalSort(map.tree!)
         print(xPositions)
     }
-    
-    class func horizontalSort(_ tree: QRNode) -> Int{
+
+    class func horizontalSort(_ rootNode: QRNode) -> Int{
         // initialize the array with the tree node in the 0 spot
-        //var nodeColumns = [[tree.id]]
-        
-        
-        let nodeArray = getDisplayableNodeArray(tree)
-        
-        /*  cartographersMatrix[m][n], where m is the height, or the number of rows, and
-            is equal to twice the number of nodes to display. This gives space for every
-            node to have a row plus a spacing row. 'n' is the number of columns, equal to
-            the total number of nodes */
-        var cartographersMatrix : [[MatrixContents]] = Array(repeating: Array(repeating:MatrixContents.space, count: nodeArray.count), count: nodeArray.count*2)
+        var nodeColumns = [[rootNode]]
+
+        let nodeArray = getDisplayableNodeArray(rootNode)
+
+        /*  cartographersMatrix[m][n], where m is the height, or the number of
+            rows, and is equal to twice the number of nodes to display. This
+            gives space for every node to have a row plus a spacing row. 'n' is
+            the number of columns, equal to the total number of nodes */
+        var cartographersMatrix : [[MatrixContents]] = Array(repeating:
+            Array(repeating:MatrixContents.space, count: nodeArray.count),
+            count: nodeArray.count*2)
 
         var rNodeArray : [QRNode] = []
         var qNodeArray : [QRNode] = []
@@ -216,12 +236,40 @@ class QRCartographer{
                 print(node.title)
             }
         }
-        
+
         rNodeArray = rNodeArray.sorted(by: { $0.id < $1.id })
+        rNodeArray.insert(rootNode, at: 0)
+        /*insert code*/
+
+        for i in 1...rNodeArray.count - 1{
+
+            /*  find questions that are cousins, add them to a node column, then
+                append the column to the nodecolumn array*/
+            var thisColumn = [rNodeArray[i]]
+            
+            
+            for node in nodeColumns[nodeColumns.endIndex - 1]{
+                for cousin in node.children{
+                    switch cousin.type{
+                    case .qNode(_):
+                        thisColumn.append(cousin)
+                    case .rNode(_): break
+                    }
+                }
+            }
+
+            /*  See if there's
+            if rNodeArray[i+1].parent!.parent!.id == rNodeArray[i].id{
+
+            }*/
+
+
+
+        }
 
 //        var treeLevels = [[tree.id]]
-//
 //        // Next, get the array for the 2nd spot. Since there's only 1 child,
+//
 //        for child in tree.children {
 //            // get all children
 //            // add all qNodes and the rNode with the lowest id # (oldest rNode)
@@ -238,11 +286,12 @@ class QRCartographer{
 //            column.append(rNodes[0])
 //            column.
 //        }
-        
+
         return 1
     }
-    
-    // Recursive function that gets all the displayable children and populates a single array
+
+    // Recursive function that gets all the displayable children and populates
+    // a single array
     class func getDisplayableNodeArray(_ node: QRNode) -> [QRNode]{
         var descendants : [QRNode] = []
         switch node.type{
@@ -275,17 +324,18 @@ struct User {
 }
 
 class Session {
-    // This is the class between the objects and the database. This class basically constructs
-    // the objects from the relevant data pulled from the DB. Alternatively, the objects could
-    // construct themselves by talking to the db.
-    
+    // This is the class between the objects and the database. This class
+    //basically constructs the objects from the relevant data pulled from the DB.
+    //Alternatively, the objects could construct themselves by talking to the db.
+
     let db = DBInterface()
     let cartographer = QRCartographer()
     var loginStatus: LoginStatus = .loggedOut
-    
-    func loginUser(withUsername uName: String, withPassword uPass: String) -> LoginStatus{
+
+    func loginUser(withUsername uName: String, withPassword uPass: String)
+                                                                -> LoginStatus{
         let result = self.db.authenticate(uName, uPass)
-        
+
         switch result{
         case .error(let error):
             print(error)
@@ -316,9 +366,9 @@ class Session {
 
 
 
-    
-    
-    
+
+
+
     //  ORIGINALLY IN SESSION CLASS
     //    func getQRMap(mID:Int)->QRMap{
     //        // First build a map struct, or all the data required
@@ -327,7 +377,7 @@ class Session {
     //        let loadMap = QRMap(withMapID: mID, andTitle: title)
     //        return loadMap
     //    }
-    
+
     //    func getMapRootNode(_ mID: Int) -> QRNode{
     //        var nID: Int = db.getMapRootNode(byMapID: mID)
     //        var rootNode: QRNode(nID)
@@ -338,8 +388,8 @@ class Session {
     //        var children : [QRNode]
     //        return children
     //    }
-    
-    
+
+
 //
 //
 //struct QNodeStruct {
@@ -433,4 +483,3 @@ class Session {
 //    //    }
 //
 //}
-

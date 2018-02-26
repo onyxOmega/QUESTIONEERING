@@ -960,7 +960,6 @@ extension BoltClient { // Node functions
             completionBlock?(transformedResult)
         }
     }
-
 }
 
 extension BoltClient { // Relationship functions

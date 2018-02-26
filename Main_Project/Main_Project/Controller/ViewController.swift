@@ -8,15 +8,14 @@
 
 import UIKit
 
-let session = SManager()
-var sessionUser = User()
-
 class ViewController: UIViewController {
 
+    let session = Session()
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var loginError: UILabel!
     
     override func loadView() {
         super.loadView()
@@ -26,6 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews(){
         super.viewDidLayoutSubviews()
         self.signInButton.backgroundColor = .clear
+        
         signInButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         signInButton.layer.borderWidth = 1.5
         
@@ -48,10 +48,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signIn(_ sender: Any) {
-        sessionUser = session.loginUser(withEmail: usernameTextField.text!, withPassword: passwordTextField.text!)
         
-        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
-        
-        self.present(mapViewController, animated: true, completion: nil)
+        switch session.loginUser(withUsername: usernameTextField.text!, withPassword: passwordTextField.text!){
+            
+        case .loggedOut:
+            self.loginError.text = "Sorry, the user name and password you provided are invalid."
+            
+        case .loggedInAs(_):
+            let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
+            mapViewController.session = self.session
+            self.present(mapViewController, animated: true, completion: nil)
+        }
+       
     }
 }

@@ -53,7 +53,7 @@ class MapViewController: UIViewController {
         var nodeButtons : [NodeButton] = []
         
         for node in cartographer.displayableNodes{
-            let newNodeButton = NodeButton(yPos: Double(view.frame.height/2), node: node)
+            let newNodeButton = NodeButton(yCenter: Double(view.frame.height/2), node: node)
             newNodeButton.addTarget(self, action: #selector(nodeSoftFocus), for: .touchUpInside)
             nodeButtons.append(newNodeButton)
             mapContainerView.addSubview(newNodeButton)
@@ -68,8 +68,8 @@ class MapViewController: UIViewController {
     
     @objc func nodeSoftFocus(_ sender: NodeButton){
         print(sender.nodeType)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-        label.center = CGPoint(x: sender.xPos + 20, y: sender.yPos + 65)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 130, height: 30))
+        label.center = CGPoint(x: sender.xPos + 15, y: sender.yPos + 55)
         label.textAlignment = .center
         label.text = sender.nodeTitle
         label.layer.cornerRadius = label.frame.height/2

@@ -19,17 +19,17 @@ class NodeButton: UIButton {
     let nodeDetail: String?
     let nodeType: NodeType
     
-    required init(yPos: Double, node: QRNode) {
+    required init(yCenter: Double, node: QRNode) {
         // set myValue before super.init is called
         self.xPos = Double(node.gridPosition.x + 1) * 150.0
-        self.yPos = yPos
+        self.yPos = Double(node.gridPosition.y + 2) * 100.0
         
         self.nodeID = node.id
         self.nodeTitle = node.title
         self.nodeDetail = node.detail
         self.nodeType = node.type
         
-        super.init(frame: CGRect(x: xPos, y: yPos, width: 30, height: 30))
+        super.init(frame: CGRect(x: xPos, y:yPos, width: 30, height: 30))
         
         // set other operations after super.init, if required
         backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

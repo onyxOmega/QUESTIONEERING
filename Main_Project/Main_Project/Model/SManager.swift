@@ -44,8 +44,8 @@ struct RNodeData{
 struct QRNodePosition{
     /*  Structure for placing nodes in discreet grid. Actual coordinates
         will be computed by multiplying by scaling factors */
-    var x: Int
-    var y: Int
+    var x: Double
+    var y: Double
 }
 
 
@@ -57,7 +57,7 @@ class QRNode{
     var type: NodeType
     var map : Int
     var vRank: Int
-    var gridPosition = QRNodePosition(x: 0, y: 0)
+    var gridPosition = QRNodePosition(x: 0.0, y: 1.0)
 
     var children : [QRNode] = []
     var parent : QRNode?
@@ -208,10 +208,10 @@ enum MatrixContents{
 struct QREdge{
     let parent: QRNode
     let child: QRNode
-    let start: Int
-    let end: Int
-    let vPosition : Double
-    
+    let start: Double
+    let end: Double
+    var vPosition : Double
+
     init(parent: QRNode, child: QRNode){
         self.parent = parent
         self.child = child
@@ -225,7 +225,7 @@ struct QREdge{
 /*  The cartographer determines the coordinates for each node on the map
     and sends them to the nodes*/
 class QRCartographer{
-    
+
     let map: QRMap
     let rootNode: QRNode
     var displayableNodes: [QRNode] = []
@@ -238,7 +238,7 @@ class QRCartographer{
         else{
             return nil
         }
-        
+
         displayableNodes = getDisplayableNodeArray(from: rootNode)
 
         horizontalLayout()
@@ -250,7 +250,7 @@ class QRCartographer{
     /*  This function determines the horizontal layout of each node, given
         a list of displayable nodes and their respective logical positions
         in the tree */
-    
+
     func horizontalLayout(){
 
         /*  initialize the array with the tree node in the 0 spot
@@ -271,7 +271,6 @@ class QRCartographer{
                 qNodeArray.append(node)
             case .rNode(_):
                 rNodeArray.append(node)
-                print(node.title)
             }
         }
 
@@ -283,7 +282,7 @@ class QRCartographer{
         for i in 0...rNodeArray.count - 1{
             /*  newColumn will be built then appended to the columns. First we
                 add the current reference (rNode)*/
-            
+
             var thisColumn = [rNodeArray[i]]
 
             /*  Next we add the children of all the nodes in the previous column
@@ -299,10 +298,10 @@ class QRCartographer{
                     }
                 }
             }
-            
+
             // These get added as a column before a "next-column" check
             nodeColumns.append(thisColumn)
-            
+
             /*  Next we check the relationship between sequential nodes.
                 If two consecutive reference nodes have a grandparent
                 relationship, then we add the intermediate question to the
@@ -326,7 +325,7 @@ class QRCartographer{
                         }
                     }
                     // And now we add these intermediates to the column array
-                    
+
                     nodeColumns.append(nextColumn)
                 }
             }
@@ -338,7 +337,7 @@ class QRCartographer{
             is in */
         for i in 0...nodeColumns.count - 1{
             for node in nodeColumns[i]{
-                node.gridPosition.x = i
+                node.gridPosition.x = Double(i)
             }
         }
     }
@@ -365,23 +364,60 @@ class QRCartographer{
          the number of columns, equal to the total number of nodes */
         //var cartographersMatrix : [[MatrixContents]] = [[]]
     }
-    
-    
+
     /*  This function takes the list of edges produced from vertical sort and
         calculates vertical coordinates*/
     func verticalLayout(with edges: [QREdge]){
         // First, we need to keep track of what edges have been positioned.
         // The top edge will have a value of 0.0, which is the default, so
-        // it's marked as placed from the start
-        var setEdges : [QREdge] = [edges[0]]
-        
+        // it's included as a "placedEdge" from the start
+        var placedEdges : [QREdge] = [edges[0]]
+        var maxVCoord = 1.0
+
         // TODO: Change badly written loops to this awesome syntax
         for (index,edge) in edges.enumerated() where index != 0{
-            if edge.parent.id == setEdges[setEdges.count-1].parent.id{
-                
+            let lastPlacedEdge = placedEdges[placedEdges.count-1]
+//            var nextSetEdge = edge
+
+            // See if two edges are incident to each other (same parent)
+            // and space accordingly by adding a 1 pt "buffer"
+            if edge.parent.id == lastPlacedEdge.parent.id{
+                maxVCoord += 1.0
+                edge.child.gridPosition.y = maxVCoord
+//                edge.child.gridPosition.y =
+//                    lastPlacedEdge.child.gridPosition.y + 1.0
+                placedEdges.append(edge)
+            }
+            // If not, see if the next edge is the parent to a set of edges
+            else if edge.child.id == lastPlacedEdge.parent.id{
+                var yCoordCount = 0
+                var yCoordSum = 0.0
+                for childEdges in edges
+                where childEdges.parent.id == edge.child.id{
+                    yCoordCount += 1
+                    yCoordSum += childEdges.child.gridPosition.y
+                }
+                edge.child.gridPosition.y = yCoordSum/Double(yCoordCount)
+                placedEdges.append(edge)
+            }
+                // TODO: Modify this function to test for gaps and efficiently fill space (maybe)
+            else{
+                // get the lowest position used so far and add a buffer
+                maxVCoord += 1.0
+                edge.child.gridPosition.y = maxVCoord
             }
         }
-
+        
+        /*  Finally, we calculate the root node position as the average of it's
+         descendant node positions */
+        var yCoordCount = 0
+        var yCoordSum = 0.0
+        for child in rootNode.children where nodeIsDisplayable(child){
+            yCoordCount += 1
+            yCoordSum += child.gridPosition.y
+        }
+        rootNode.gridPosition.y = yCoordSum/Double(yCoordCount)
+        
     }
 
     // This function returns true if a node is in the displayable node array
@@ -436,7 +472,7 @@ struct User {
 /*  This class interfaces between the objects and the database. This class
     basically constructs the objects from the relevant data pulled from the DB.
     Alternatively, the objects could construct themselves by talking to the db.
- 
+
     It may be appropriate to make this a static class instead of producing an
     instance. */
 class Session {

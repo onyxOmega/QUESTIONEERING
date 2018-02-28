@@ -19,9 +19,9 @@ class NodeButton: UIButton {
     let nodeDetail: String?
     let nodeType: NodeType
     
-    required init(xPos: Double, yPos: Double, node: QRNode) {
+    required init(yPos: Double, node: QRNode) {
         // set myValue before super.init is called
-        self.xPos = xPos
+        self.xPos = Double(node.gridPosition.x + 1) * 150.0
         self.yPos = yPos
         
         self.nodeID = node.id
@@ -29,7 +29,7 @@ class NodeButton: UIButton {
         self.nodeDetail = node.detail
         self.nodeType = node.type
         
-        super.init(frame: CGRect(x: xPos, y: yPos, width: 38, height: 38))
+        super.init(frame: CGRect(x: xPos, y: yPos, width: 30, height: 30))
         
         // set other operations after super.init, if required
         backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -40,7 +40,7 @@ class NodeButton: UIButton {
         layer.masksToBounds = false
         layer.cornerRadius = frame.width / 2
         
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 19,y: 19), radius: CGFloat(13), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 15,y: 15), radius: CGFloat(10), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
         
         switch nodeType{
         case .rNode(_):

@@ -15,7 +15,6 @@ enum NodeType {
     case qNode(QNodeData), rNode(RNodeData)
 }
 
-
 struct QNodeData{
     var context : String?
     var dateAsked : Date?
@@ -57,6 +56,7 @@ class QRNode{
     var detail: String?
     var type: NodeType
     var map : Int
+    var vRank: Int
     var gridPosition = QRNodePosition(x: 0, y: 0)
 
     var children : [QRNode] = []
@@ -64,13 +64,14 @@ class QRNode{
 
     init?(fromProperties properties: Dictionary<String, PackProtocol>,
           inMap map: Int){
+
         self.map = map
-        var typeProperties = properties
+        // TODO: Test Deletion of type-properties
+//        var typeProperties = properties
         if let id = properties["id"] as? Int{
             self.id = id
-            typeProperties.removeValue(forKey: "id")
+//            typeProperties.removeValue(forKey: "id")
         }
-
         else{
             print("id fail");
             return nil
@@ -78,22 +79,28 @@ class QRNode{
 
         if let title = properties["title"] as? String{
             self.title = title
-            typeProperties.removeValue(forKey: "title")
+//            typeProperties.removeValue(forKey: "title")
         }
-
         else{
             print("label fail"); return nil
         }
 
+        if let vRank = properties["vRank"] as? Int{
+            self.vRank = vRank
+//            typeProperties.removeValue(forKey: "vRank")
+        }
+        else{
+            self.vRank = self.id
+        }
         self.detail = properties["detail"] as? String
-        typeProperties.removeValue(forKey: "detail")
+//        typeProperties.removeValue(forKey: "detail")
 
         // Check and see if there's context or a UUID to determine type
         if properties["context"] != nil{
-            self.type = .qNode(QNodeData(fromProperties: typeProperties))
+            self.type = .qNode(QNodeData(fromProperties: properties))
         }
         else{
-            self.type = .rNode(RNodeData(fromProperties: typeProperties))
+            self.type = .rNode(RNodeData(fromProperties: properties))
         }
     }
 }
@@ -156,7 +163,6 @@ class QRMap {
         if let node = validateResult(root){
             node.children = getChildren(of: node)
             self.tree = node
-            QRCartographer.setNodePositions(map: self)
         }
     }
 
@@ -192,42 +198,74 @@ class QRMap {
     }
 }
 
-// TODO: Need to calculate node positions from map
-
 enum MatrixContents{
     case line
     case space
+    case buffer(QRNode)
     case node(QRNode)
 }
 
-class QRCartographer{
-    /*  The cartographer makes the maps. Or at least lays them out, calculates
-        coordinates, etc. I don't think it will need instance variables. To
-        start, I'm just going to set it up to figure things out from a map
-        data-structure*/
+struct QREdge{
+    let parent: QRNode
+    let child: QRNode
+    let start: Int
+    let end: Int
+    let vPosition : Double
+    
+    init(parent: QRNode, child: QRNode){
+        self.parent = parent
+        self.child = child
+        start = parent.gridPosition.x
+        end = child.gridPosition.x
+        vPosition = 0.0
+    }
+}
 
-    class func setNodePositions(map: QRMap){
-        let xPositions = horizontalSort(map.tree!)
-        print(xPositions)
+
+/*  The cartographer determines the coordinates for each node on the map
+    and sends them to the nodes*/
+class QRCartographer{
+    
+    let map: QRMap
+    let rootNode: QRNode
+    var displayableNodes: [QRNode] = []
+
+    init?(map : QRMap){
+        self.map = map
+        if map.tree != nil{
+            self.rootNode = map.tree!
+        }
+        else{
+            return nil
+        }
+        
+        displayableNodes = getDisplayableNodeArray(from: rootNode)
+
+        horizontalLayout()
+        let edges = verticalSort(node: rootNode)
+        verticalLayout(with: edges)
+        print(edges)
     }
 
-    class func horizontalSort(_ rootNode: QRNode) -> Int{
-        // initialize the array with the tree node in the 0 spot
+    /*  This function determines the horizontal layout of each node, given
+        a list of displayable nodes and their respective logical positions
+        in the tree */
+    
+    func horizontalLayout(){
+
+        /*  initialize the array with the tree node in the 0 spot
+            Node Columns is a matrix that represents what nodes belong
+            at each horizontal "coordinate" based on the current visual style
+            Note this doesn't have traditional matrix notation.
+            It's nodeColumns[column][row]
+            eg. nodeColumns[column(i.e. x-coordinate)][nodes-in-column (i.e.
+            nodes with that x-coordinate)]*/
+
         var nodeColumns = [[rootNode]]
-
-        let nodeArray = getDisplayableNodeArray(rootNode)
-
-        /*  cartographersMatrix[m][n], where m is the height, or the number of
-            rows, and is equal to twice the number of nodes to display. This
-            gives space for every node to have a row plus a spacing row. 'n' is
-            the number of columns, equal to the total number of nodes */
-        var cartographersMatrix : [[MatrixContents]] = Array(repeating:
-            Array(repeating:MatrixContents.space, count: nodeArray.count),
-            count: nodeArray.count*2)
 
         var rNodeArray : [QRNode] = []
         var qNodeArray : [QRNode] = []
-        for node in nodeArray{
+        for node in displayableNodes{
             switch node.type{
             case .qNode(_):
                 qNodeArray.append(node)
@@ -237,62 +275,132 @@ class QRCartographer{
             }
         }
 
+        // Put nodes in chronological order. Initially using id.
+        // TODO: use timestamp to horizontal sort
         rNodeArray = rNodeArray.sorted(by: { $0.id < $1.id })
-        rNodeArray.insert(rootNode, at: 0)
-        /*insert code*/
+        //rNodeArray.insert(rootNode, at: 0)
 
-        for i in 1...rNodeArray.count - 1{
-
-            /*  find questions that are cousins, add them to a node column, then
-                append the column to the nodecolumn array*/
+        for i in 0...rNodeArray.count - 1{
+            /*  newColumn will be built then appended to the columns. First we
+                add the current reference (rNode)*/
+            
             var thisColumn = [rNodeArray[i]]
-            
-            
+
+            /*  Next we add the children of all the nodes in the previous column
+                that are question nodes and add them to the current column */
             for node in nodeColumns[nodeColumns.endIndex - 1]{
                 for cousin in node.children{
                     switch cousin.type{
                     case .qNode(_):
-                        thisColumn.append(cousin)
-                    case .rNode(_): break
+                        if nodeIsDisplayable(cousin){
+                            thisColumn.append(cousin)
+                        }
+                    default: break
                     }
                 }
             }
+            
+            // These get added as a column before a "next-column" check
+            nodeColumns.append(thisColumn)
+            
+            /*  Next we check the relationship between sequential nodes.
+                If two consecutive reference nodes have a grandparent
+                relationship, then we add the intermediate question to the
+                column */
+            if i < rNodeArray.count - 1{
+                // Find a qNode between two rNodes and add it
+                if rNodeArray[i+1].parent?.parent?.id == rNodeArray[i].id{
+                    var nextColumn :[QRNode] = [rNodeArray[i+1].parent!]
+                    /*  Find cousins of the qNode and add them (note, not
+                        1st cousins, necessarily. It's looking for qNode children
+                        of all nodes on the previous level */
+                    for node in nodeColumns[nodeColumns.endIndex - 1]{
+                        for cousin in node.children{
+                            switch cousin.type{
+                            case .qNode(_):
+                                if nodeIsDisplayable(cousin){
+                                    nextColumn.append(cousin)
+                                }
+                            default: break
+                            }
+                        }
+                    }
+                    // And now we add these intermediates to the column array
+                    
+                    nodeColumns.append(nextColumn)
+                }
+            }
 
-            /*  See if there's
-            if rNodeArray[i+1].parent!.parent!.id == rNodeArray[i].id{
-
-            }*/
-
-
-
+            // Finally, we add the column to the column matrix
         }
 
-//        var treeLevels = [[tree.id]]
-//        // Next, get the array for the 2nd spot. Since there's only 1 child,
-//
-//        for child in tree.children {
-//            // get all children
-//            // add all qNodes and the rNode with the lowest id # (oldest rNode)
-//            // sort list by id
-//            var column : [Int] = []
-//            var rNodes : [Int] = []
-//            switch child.type{
-//            case .qNode(_):
-//                column.append(child.id)
-//            case .rNode(_):
-//                rNodes.append(child.id)
-//            }
-//            rNodes.sort()
-//            column.append(rNodes[0])
-//            column.
-//        }
-
-        return 1
+        /*  Now, the x position for each node is set as the column index the node
+            is in */
+        for i in 0...nodeColumns.count - 1{
+            for node in nodeColumns[i]{
+                node.gridPosition.x = i
+            }
+        }
     }
 
-    // Recursive function that gets all the displayable children and populates
-    // a single array
-    class func getDisplayableNodeArray(_ node: QRNode) -> [QRNode]{
+    /*  This function uses the vSort priority and the tree structure to put
+        adjacent node pairs (i.e. nodes and their connecting edge) into a
+        vertical hierarchy, then assigns each node a y-coordinate for their
+        grid position based on where they are in the hierarchy*/
+    func verticalSort(node: QRNode) -> [QREdge]{
+        var edges : [QREdge] = []
+        for child in node.children.sorted(by: { $0.vRank < $1.vRank }){
+            if nodeIsDisplayable(child){
+                edges.append(contentsOf: verticalSort(node: child))
+                let newEdge = QREdge(parent: node, child: child)
+                edges.append(newEdge)
+            }
+        }
+        return edges
+        /*
+         Probably belongs in another function, again
+         cartographersMatrix[m][n], where m is the height, or the number of
+         rows, and is equal to twice the number of nodes to display. This
+         gives space for every node to have a row plus a spacing row. 'n' is
+         the number of columns, equal to the total number of nodes */
+        //var cartographersMatrix : [[MatrixContents]] = [[]]
+    }
+    
+    
+    /*  This function takes the list of edges produced from vertical sort and
+        calculates vertical coordinates*/
+    func verticalLayout(with edges: [QREdge]){
+        // First, we need to keep track of what edges have been positioned.
+        // The top edge will have a value of 0.0, which is the default, so
+        // it's marked as placed from the start
+        var setEdges : [QREdge] = [edges[0]]
+        
+        // TODO: Change badly written loops to this awesome syntax
+        for (index,edge) in edges.enumerated() where index != 0{
+            if edge.parent.id == setEdges[setEdges.count-1].parent.id{
+                
+            }
+        }
+
+    }
+
+    // This function returns true if a node is in the displayable node array
+    func nodeIsDisplayable(_ node: QRNode)-> Bool{
+        let isDisplayable = displayableNodes.contains{ element in
+            if element.id == node.id {
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        return isDisplayable
+    }
+
+    /*  Recursive function that gets all the displayable children and populates
+        a single array. The array is sorted by vRank from newest generation up
+        to facilitate the vRank function (so extra recursion isn't necessary)*/
+    func getDisplayableNodeArray(from node: QRNode) -> [QRNode]{
         var descendants : [QRNode] = []
         switch node.type{
         case .qNode(_):
@@ -304,14 +412,15 @@ class QRCartographer{
             descendants.append(node)
         }
         for child in node.children{
-            descendants.append(contentsOf: getDisplayableNodeArray(child))
+            descendants.append(contentsOf: getDisplayableNodeArray(from: child)
+                                           .sorted(by: { $0.vRank < $1.vRank }))
         }
         return descendants
     }
 }
 
-// MARK: Session Management Structures and Classes
 
+// MARK: Session Management Structures and Classes
 
 enum LoginStatus{
     case loggedOut
@@ -323,13 +432,16 @@ struct User {
     var uid: Int
 }
 
+
+/*  This class interfaces between the objects and the database. This class
+    basically constructs the objects from the relevant data pulled from the DB.
+    Alternatively, the objects could construct themselves by talking to the db.
+ 
+    It may be appropriate to make this a static class instead of producing an
+    instance. */
 class Session {
-    // This is the class between the objects and the database. This class
-    //basically constructs the objects from the relevant data pulled from the DB.
-    //Alternatively, the objects could construct themselves by talking to the db.
 
     let db = DBInterface()
-    let cartographer = QRCartographer()
     var loginStatus: LoginStatus = .loggedOut
 
     func loginUser(withUsername uName: String, withPassword uPass: String)
@@ -363,6 +475,41 @@ class Session {
 
 
 
+
+
+//  ORIGINALLY IN VERTICAL SORT FOR QRCARTOGRAPHER
+//        for column in nodeColumns{
+//            for parent in column{
+//                var connection : [MatrixContents] = []
+//                let vSortedChildren : [QRNode] =
+//                    parent.children.sorted(by: { $0.vRank < $1.vRank })
+//
+//                for child in vSortedChildren{
+//                    let childIsDisplayable = qNodeArray.contains{ element in
+//                        if element.id == child.id {
+//                            return true
+//                        }
+//                        else{
+//                            return false
+//                        }
+//                    }
+//                    if childIsDisplayable{
+//                        // insert appropriate number of spaces, which is i
+//                        let spaceCount = parent.gridPosition.x
+//                        let lineCount = child.gridPosition.x - spaceCount - 1
+//                        let spaces : [MatrixContents] =
+//                            Array(repeatElement(.space, count: spaceCount))
+//                        let lines : [MatrixContents] =
+//                            Array(repeatElement(.line, count: lineCount))
+//                        connection.append(contentsOf: spaces)
+//                        connection.append(.node(parent))
+//                        connection.append(contentsOf: lines)
+//                        connection.append(.node(child))
+//
+//                    }
+//                }
+//            }
+//        }
 
 
 

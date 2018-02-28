@@ -33,8 +33,12 @@ class MapViewController: UIViewController {
         let activeMap = QRMap(withMapID: 0, forSession: session)
         print("Active Map: \(activeMap)")
         
-        if let tree = activeMap.tree{
-            drawMap(withRoot: tree)
+        
+        if let cartographer = QRCartographer(map: activeMap) {
+            drawMap(with: cartographer)
+        }
+        else{
+            print("The map is invalid! (Need some debugging)")
         }
     }
     
@@ -44,12 +48,17 @@ class MapViewController: UIViewController {
     }
     
     
-    func drawMap(withRoot root: QRNode){
+    func drawMap(with cartographer: QRCartographer){
         
+        var nodeButtons : [NodeButton] = []
         
-        let rootNodeButton = NodeButton(xPos: 100, yPos: Double(view.frame.height/2), node: root)
-        rootNodeButton.addTarget(self, action: #selector(nodeSoftFocus), for: .touchUpInside)
-        mapContainerView.addSubview(rootNodeButton)
+        for node in cartographer.displayableNodes{
+            let newNodeButton = NodeButton(yPos: Double(view.frame.height/2), node: node)
+            newNodeButton.addTarget(self, action: #selector(nodeSoftFocus), for: .touchUpInside)
+            nodeButtons.append(newNodeButton)
+            mapContainerView.addSubview(newNodeButton)
+        }
+        
         
         scrollView.minimumZoomScale = 0.9
         scrollView.maximumZoomScale = 1.1

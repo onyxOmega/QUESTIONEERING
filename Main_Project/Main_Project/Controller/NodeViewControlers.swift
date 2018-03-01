@@ -59,3 +59,47 @@ class NodeButton: UIButton {
     }
     
 }
+
+
+/* This class draws the lines between nodes */
+//class Edge: UIView{
+//
+//    let originNode: QRNode
+//    let terminalNode: QRNode
+//
+//    override init(originates: QRNode, terminates: QRNode) {
+//
+//        // TODO: Change coordinates to CGPoint
+//        let oPoint = CGPoint(x: originates.gridPosition.x,
+//                             y: originates.gridPosition.y)
+//        let tPoint
+//        //self.frame = CGFrame
+//
+//        super.init(frame: frame)
+//        self.backgroundColor = UIColor(white:1, alpha:0.0)
+//    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//    override func draw(_ rect: CGRect) {
+//        let aPath = UIBezierPath()
+//        UIColor.red.set()
+//        aPath.stroke(with: .color, alpha: 1.0)
+//        aPath.move(to: CGPoint(x: 50, y:50))
+//
+//        aPath.addLine(to: CGPoint(x:50, y:0))
+//
+//        //Keep using the method addLineToPoint until you get to the one where about to close the path
+//        aPath.lineWidth = 2.5
+//
+//        aPath.close()
+//        aPath.lineWidth = 2.5
+//
+//        //If you want to stroke it with a red color
+//        UIColor.red.set()
+//        aPath.stroke()
+//        //If you want to fill it as well
+//        aPath.fill()
+//    }
+//}
+

@@ -58,6 +58,7 @@ class QRNode{
     var map : Int
     var vRank: Int
     var gridPosition = QRNodePosition(x: 0.0, y: 1.0)
+    var point = CGPoint(x:0, y:0)
 
     var children : [QRNode] = []
     var parent : QRNode?
@@ -154,8 +155,6 @@ class QRMap {
         print(mapProperties)
     }
 
-
-
     /*  This function gets the root node, which gets all it's children recursively */
     func getRoot(){
         let root = session.db.getMapRoot(byMapID: self.id)
@@ -229,6 +228,9 @@ class QRCartographer{
     let map: QRMap
     let rootNode: QRNode
     var displayableNodes: [QRNode] = []
+    var frame: CGRect = CGRect(x:0, y:0, width: UIScreen.main.bounds.width,
+                                        height: UIScreen.main.bounds.height)
+    var edges : [QREdge] = []
 
     init?(map : QRMap){
         self.map = map
@@ -242,8 +244,9 @@ class QRCartographer{
         displayableNodes = getDisplayableNodeArray(from: rootNode)
 
         horizontalLayout()
-        let edges = verticalSort(node: rootNode)
+        edges = verticalSort(node: rootNode)
         verticalLayout(with: edges)
+        
         print(edges)
     }
 
@@ -372,7 +375,7 @@ class QRCartographer{
         // The top edge will have a value of 0.0, which is the default, so
         // it's included as a "placedEdge" from the start
         var placedEdges : [QREdge] = [edges[0]]
-        var maxVCoord = 1.0
+        var maxVCoord = 0.0
 
         // TODO: Change badly written loops to this awesome syntax
         for (index,edge) in edges.enumerated() where index != 0{
@@ -384,8 +387,6 @@ class QRCartographer{
             if edge.parent.id == lastPlacedEdge.parent.id{
                 maxVCoord += 1.0
                 edge.child.gridPosition.y = maxVCoord
-//                edge.child.gridPosition.y =
-//                    lastPlacedEdge.child.gridPosition.y + 1.0
                 placedEdges.append(edge)
             }
             // If not, see if the next edge is the parent to a set of edges
@@ -405,6 +406,7 @@ class QRCartographer{
                 // get the lowest position used so far and add a buffer
                 maxVCoord += 1.0
                 edge.child.gridPosition.y = maxVCoord
+                placedEdges.append(edge)
             }
         }
         
@@ -453,6 +455,45 @@ class QRCartographer{
         }
         return descendants
     }
+    
+    
+    /*  This function takes grid coordinates and sets CGPoint coordinates
+        for each node */
+    func setPointsAndFrame(xScale: Double, yScale: Double, nodeSize: Double){
+        
+        let vScaledSize = nodeSize/yScale
+        let hScaledSize = nodeSize/xScale
+        
+        // arrange displayable nodes by position to determine the map "height"
+        let vSorted = displayableNodes
+            .sorted(by: { $0.gridPosition.y < $1.gridPosition.y })
+        
+        let hSorted = displayableNodes
+            .sorted(by: { $0.gridPosition.y < $1.gridPosition.y })
+        
+        // This sets the frame as a box that exactly fits the nodes
+        
+        
+        for node in displayableNodes{
+            let x = (node.gridPosition.x + hScaledSize/2) * xScale
+            let y = (node.gridPosition.y + vScaledSize/2) * yScale
+            node.point.x = CGFloat(x)
+            node.point.y = CGFloat(y)
+        }
+        
+        let top = vSorted[0].point.y
+        let bottom = vSorted[vSorted.count - 1].point.y
+        let height = bottom - top
+        
+        let left = hSorted[0].point.x
+        let right = hSorted[vSorted.count - 1].point.x
+        let width = right - left
+        
+        let cgNodeSize = CGFloat(nodeSize)
+        self.frame = CGRect(x:0, y:0, width: width + cgNodeSize,
+                            height: height + cgNodeSize)
+    }
+    
 }
 
 

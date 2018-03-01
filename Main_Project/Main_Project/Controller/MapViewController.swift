@@ -59,6 +59,9 @@ class MapViewController: UIViewController {
             mapContainerView.addSubview(newNodeButton)
         }
         
+        // let edge = Edge(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        
+        // mapContainerView.addSubview(edge)
         
         scrollView.minimumZoomScale = 0.9
         scrollView.maximumZoomScale = 1.1

@@ -57,7 +57,7 @@ class QRNode{
     var type: NodeType
     var map : Int
     var vRank: Int
-    var gridPosition = QRNodePosition(x: 0.0, y: 1.0)
+    var gridPosition = QRNodePosition(x: 0.0, y: 0.0)
     var point = CGPoint(x:0, y:0)
 
     var children : [QRNode] = []
@@ -246,7 +246,7 @@ class QRCartographer{
         horizontalLayout()
         edges = verticalSort(node: rootNode)
         verticalLayout(with: edges)
-        
+        setPointsAndFrame()
         print(edges)
     }
 
@@ -375,7 +375,7 @@ class QRCartographer{
         // The top edge will have a value of 0.0, which is the default, so
         // it's included as a "placedEdge" from the start
         var placedEdges : [QREdge] = [edges[0]]
-        var maxVCoord = 0.0
+        var maxVCoord = 1.0
 
         // TODO: Change badly written loops to this awesome syntax
         for (index,edge) in edges.enumerated() where index != 0{
@@ -385,9 +385,10 @@ class QRCartographer{
             // See if two edges are incident to each other (same parent)
             // and space accordingly by adding a 1 pt "buffer"
             if edge.parent.id == lastPlacedEdge.parent.id{
-                maxVCoord += 1.0
                 edge.child.gridPosition.y = maxVCoord
                 placedEdges.append(edge)
+                maxVCoord += 1.0
+
             }
             // If not, see if the next edge is the parent to a set of edges
             else if edge.child.id == lastPlacedEdge.parent.id{
@@ -395,8 +396,8 @@ class QRCartographer{
                 var yCoordSum = 0.0
                 for childEdges in edges
                 where childEdges.parent.id == edge.child.id{
-                    yCoordCount += 1
                     yCoordSum += childEdges.child.gridPosition.y
+                    yCoordCount += 1
                 }
                 edge.child.gridPosition.y = yCoordSum/Double(yCoordCount)
                 placedEdges.append(edge)
@@ -404,9 +405,9 @@ class QRCartographer{
                 // TODO: Modify this function to test for gaps and efficiently fill space (maybe)
             else{
                 // get the lowest position used so far and add a buffer
-                maxVCoord += 1.0
                 edge.child.gridPosition.y = maxVCoord
                 placedEdges.append(edge)
+                maxVCoord += 1.0
             }
         }
         
@@ -458,40 +459,37 @@ class QRCartographer{
     
     
     /*  This function takes grid coordinates and sets CGPoint coordinates
-        for each node */
-    func setPointsAndFrame(xScale: Double, yScale: Double, nodeSize: Double){
-        
-        let vScaledSize = nodeSize/yScale
-        let hScaledSize = nodeSize/xScale
+        for each node. Currently uses Global Constants for scale and node size*/
+    func setPointsAndFrame(){
         
         // arrange displayable nodes by position to determine the map "height"
         let vSorted = displayableNodes
             .sorted(by: { $0.gridPosition.y < $1.gridPosition.y })
         
         let hSorted = displayableNodes
-            .sorted(by: { $0.gridPosition.y < $1.gridPosition.y })
-        
-        // This sets the frame as a box that exactly fits the nodes
-        
+            .sorted(by: { $0.gridPosition.x < $1.gridPosition.x })
         
         for node in displayableNodes{
-            let x = (node.gridPosition.x + hScaledSize/2) * xScale
-            let y = (node.gridPosition.y + vScaledSize/2) * yScale
+            // Scale the positions, then offset by half the size of the node
+            // so there isn't overhang at the top and left edges
+            
+            // x position is offset by more for padding and label room
+            let x = node.gridPosition.x * xScale + nodeSize*3
+            let y = node.gridPosition.y * yScale + nodeSize
             node.point.x = CGFloat(x)
             node.point.y = CGFloat(y)
         }
         
-        let top = vSorted[0].point.y
-        let bottom = vSorted[vSorted.count - 1].point.y
-        let height = bottom - top
-        
-        let left = hSorted[0].point.x
-        let right = hSorted[vSorted.count - 1].point.x
-        let width = right - left
-        
+        // Set the frame as a rectangle that exactly fits the nodes
         let cgNodeSize = CGFloat(nodeSize)
-        self.frame = CGRect(x:0, y:0, width: width + cgNodeSize,
-                            height: height + cgNodeSize)
+        
+        // Calculate the furthest right and bottom node position, and add
+        // a buffer to prevent right/bottom overhang (x gets extra for label)
+        let height = vSorted[vSorted.count - 1].point.y + cgNodeSize*2
+        let width = hSorted[hSorted.count - 1].point.x + cgNodeSize*4
+        
+        self.frame = CGRect(x:0, y:0, width: width,
+                            height: height)
     }
     
 }

@@ -161,12 +161,14 @@
                             <constraint firstItem="VbJ-Qg-EUs" firstAttribute="height" secondItem="va3-0a-dhE" secondAttribute="height" id="FJV-C9-pQq"/>
                             <constraint firstItem="Is4-fu-fLK" firstAttribute="bottom" secondItem="va3-0a-dhE" secondAttribute="bottom" id="FMh-hf-JZD"/>
                             <constraint firstItem="Is4-fu-fLK" firstAttribute="top" secondItem="va3-0a-dhE" secondAttribute="top" id="Xu5-wa-gy7"/>
+                            <constraint firstItem="Is4-fu-fLK" firstAttribute="width" secondItem="va3-0a-dhE" secondAttribute="width" id="lmH-d8-NEY"/>
                             <constraint firstItem="Is4-fu-fLK" firstAttribute="trailing" secondItem="va3-0a-dhE" secondAttribute="trailing" id="oOW-IY-EYq"/>
+                            <constraint firstItem="Is4-fu-fLK" firstAttribute="height" secondItem="va3-0a-dhE" secondAttribute="height" id="t6C-yk-udC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="va3-0a-dhE"/>
                     </view>
                     <connections>
-                        <outlet property="mapContainerView" destination="VbJ-Qg-EUs" id="law-mq-9DC"/>
+                        <outlet property="mapViewContainer" destination="VbJ-Qg-EUs" id="Jqm-hT-q2C"/>
                         <outlet property="processFeedbackLabel" destination="vz8-3b-5Il" id="s9T-wp-eLO"/>
                         <outlet property="scrollView" destination="Is4-fu-fLK" id="5AY-G3-hBw"/>
                     </connections>

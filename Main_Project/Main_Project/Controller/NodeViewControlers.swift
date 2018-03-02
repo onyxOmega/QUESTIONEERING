@@ -10,40 +10,51 @@ import Foundation
 import UIKit
 
 class NodeButton: UIButton {
+    let node : QRNode
     
-    var xPos: Double
-    var yPos: Double
+    required init(_ node: QRNode) {
+        self.node = node
+        
+        //   Center the button at the node's x/y point coordinates
+        let buttonframe = CGRect(x: node.point.x - CGFloat(nodeSize/2),
+                            y: node.point.y - CGFloat(nodeSize/2),
+                            width: CGFloat(nodeSize),
+                            height: CGFloat(nodeSize))
+        
+        super.init(frame: buttonframe)
+    }
     
-    let nodeID: Int
-    let nodeTitle: String
-    let nodeDetail: String?
-    let nodeType: NodeType
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-    required init(yCenter: Double, node: QRNode) {
-        // set myValue before super.init is called
-        self.xPos = Double(node.gridPosition.x + 1) * 150.0
-        self.yPos = Double(node.gridPosition.y + 2) * 100.0
+    // Draw circles for buttons.
+    override func draw(_ rect: CGRect) {
+        //Outer circle only if it's a qNode
+        let outerCirclePath =
+            UIBezierPath(arcCenter: CGPoint(x: nodeSize/2,
+                                            y: nodeSize/2),
+                         radius: CGFloat(nodeSize),
+                         startAngle: CGFloat(0),
+                         endAngle:CGFloat(Double.pi * 2),
+                         clockwise: true)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = outerCirclePath.cgPath
+        shapeLayer.strokeColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        shapeLayer.fillColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        shapeLayer.lineWidth = CGFloat(nodeSize/8)
+        layer.addSublayer(shapeLayer)
         
-        self.nodeID = node.id
-        self.nodeTitle = node.title
-        self.nodeDetail = node.detail
-        self.nodeType = node.type
-        
-        super.init(frame: CGRect(x: xPos, y:yPos, width: 30, height: 30))
-        
-        // set other operations after super.init, if required
-        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.borderWidth = 2.5
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        layer.masksToBounds = false
-        layer.cornerRadius = frame.width / 2
-        
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 15,y: 15), radius: CGFloat(10), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
-        
-        switch nodeType{
+        // Inner circle also for rNodes
+        switch node.type{
         case .rNode(_):
+            let circlePath =
+                UIBezierPath(arcCenter: CGPoint(x: nodeSize/2,
+                                                y: nodeSize/2),
+                             radius: CGFloat(nodeSize/1.5),
+                             startAngle: CGFloat(0),
+                             endAngle:CGFloat(Double.pi * 2),
+                             clockwise: true)
             let shapeLayer = CAShapeLayer()
             shapeLayer.path = circlePath.cgPath
             shapeLayer.fillColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
@@ -51,13 +62,7 @@ class NodeButton: UIButton {
             layer.addSublayer(shapeLayer)
         default: break
         }
-
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }
 
 

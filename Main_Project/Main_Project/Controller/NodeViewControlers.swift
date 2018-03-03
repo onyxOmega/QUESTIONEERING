@@ -34,15 +34,15 @@ class NodeButton: UIButton {
         let outerCirclePath =
             UIBezierPath(arcCenter: CGPoint(x: nodeSize/2,
                                             y: nodeSize/2),
-                         radius: CGFloat(nodeSize),
+                         radius: CGFloat(nodeSize/2),
                          startAngle: CGFloat(0),
                          endAngle:CGFloat(Double.pi * 2),
                          clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = outerCirclePath.cgPath
-        shapeLayer.strokeColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        shapeLayer.fillColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        shapeLayer.lineWidth = CGFloat(nodeSize/8)
+        shapeLayer.strokeColor = nodeColor.cgColor
+        shapeLayer.fillColor = bgColor.cgColor
+        shapeLayer.lineWidth = CGFloat(lineWidth)
         layer.addSublayer(shapeLayer)
         
         // Inner circle also for rNodes
@@ -51,13 +51,13 @@ class NodeButton: UIButton {
             let circlePath =
                 UIBezierPath(arcCenter: CGPoint(x: nodeSize/2,
                                                 y: nodeSize/2),
-                             radius: CGFloat(nodeSize/1.5),
+                             radius: CGFloat(nodeSize/2 - 2 * lineWidth),
                              startAngle: CGFloat(0),
                              endAngle:CGFloat(Double.pi * 2),
                              clockwise: true)
             let shapeLayer = CAShapeLayer()
             shapeLayer.path = circlePath.cgPath
-            shapeLayer.fillColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            shapeLayer.fillColor = nodeColor.cgColor
             shapeLayer.lineWidth = 0.0
             layer.addSublayer(shapeLayer)
         default: break
@@ -67,44 +67,106 @@ class NodeButton: UIButton {
 
 
 /* This class draws the lines between nodes */
-//class Edge: UIView{
+class EdgeLine: UIView{
+
+    // an edge is between start and end nodes
+
+    var edge: QREdge
+    let top : CGFloat
+    let left : CGFloat
+    let height : CGFloat
+    let width : CGFloat
+
+
+    required init(_ edge: QREdge) {
+        
+        // Initialize start and end nodes
+        self.edge = edge
+        let sNode = edge.parent
+        let eNode = edge.child
+        
+        // Calculate frame around both nodes
+        self.top = min(sNode.point.y, eNode.point.y) - CGFloat(nodeSize/2)
+        self.left = min(sNode.point.x, eNode.point.x) - CGFloat(nodeSize/2)
+        self.height = abs(sNode.point.y - eNode.point.y) + CGFloat(nodeSize)
+        self.width = abs(sNode.point.x - eNode.point.x) + CGFloat(nodeSize)
+        let edgeFrame = CGRect(x: left, y: top, width: width, height: height)
+    
+        super.init(frame: edgeFrame)
+        self.backgroundColor = UIColor.clear
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    override func draw(_ rect: CGRect) {
+        
+        // Calculate origin with respect to the line's rectangle.
+        let top = CGFloat(nodeSize/2)
+        let left = CGFloat(nodeSize/2)
+        let bottom = rect.height - CGFloat(nodeSize/2)
+        let right = rect.width - CGFloat(nodeSize/2)
+        
+        let xDiagonal = CGFloat((edge.child.point.x -
+                                edge.parent.point.x) /
+                                CGFloat(edge.child.gridPosition.x -
+                                        edge.parent.gridPosition.x) +
+                                CGFloat(nodeSize/2))
+        
+        // Assume it originates on the top left and terminates on the top right
+        var origin = CGPoint(x: left, y: top)
+        var diagonal = CGPoint(x: xDiagonal, y: bottom)
+        var termination = CGPoint(x: right, y: bottom)
+        
+        // Change the y coordinates if the previous assumption is false
+        if edge.child.point.y < edge.parent.point.y{
+            origin.y = bottom
+            diagonal.y = top
+            termination.y = top
+        }
+    
+        // Draw the path
+        let lineLayer = CAShapeLayer()
+        let path = UIBezierPath()
+        path.stroke(with: .color, alpha: 1.0)
+        path.move(to: origin)
+        path.addLine(to: diagonal)
+        path.close()
+        lineLayer.path = path.cgPath
+        path.move(to:diagonal)
+        path.addLine(to: termination)
+        path.close()
+        lineLayer.path = path.cgPath
+        
 //
-//    let originNode: QRNode
-//    let terminalNode: QRNode
-//
-//    override init(originates: QRNode, terminates: QRNode) {
-//
-//        // TODO: Change coordinates to CGPoint
-//        let oPoint = CGPoint(x: originates.gridPosition.x,
-//                             y: originates.gridPosition.y)
-//        let tPoint
-//        //self.frame = CGFrame
-//
-//        super.init(frame: frame)
-//        self.backgroundColor = UIColor(white:1, alpha:0.0)
-//    }
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-//    override func draw(_ rect: CGRect) {
-//        let aPath = UIBezierPath()
-//        UIColor.red.set()
-//        aPath.stroke(with: .color, alpha: 1.0)
-//        aPath.move(to: CGPoint(x: 50, y:50))
-//
-//        aPath.addLine(to: CGPoint(x:50, y:0))
-//
-//        //Keep using the method addLineToPoint until you get to the one where about to close the path
-//        aPath.lineWidth = 2.5
-//
-//        aPath.close()
-//        aPath.lineWidth = 2.5
-//
-//        //If you want to stroke it with a red color
-//        UIColor.red.set()
-//        aPath.stroke()
-//        //If you want to fill it as well
-//        aPath.fill()
-//    }
-//}
+//        path.lineWidth = 2.5
+//        #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).set()
+//        path.stroke()
+        // Format the display
+        lineLayer.lineCap = kCALineCapRound
+        lineLayer.lineJoin = kCALineJoinRound
+        lineLayer.strokeColor = nodeColor.cgColor
+        lineLayer.lineWidth = CGFloat(lineWidth)
+        layer.addSublayer(lineLayer)
+        
+        // Add a dot at the corner if there is one
+        if edge.child.gridPosition.x - edge.parent.gridPosition.x >= 2.0
+        && edge.child.gridPosition.y != edge.parent.gridPosition.y {
+            let circlePath =
+                UIBezierPath(arcCenter: diagonal,
+                             radius: CGFloat(lineWidth*3),
+                             startAngle: CGFloat(0),
+                             endAngle:CGFloat(Double.pi * 2),
+                             clockwise: true)
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.path = circlePath.cgPath
+            shapeLayer.fillColor = nodeColor.cgColor
+            shapeLayer.lineWidth = 0.0
+            layer.addSublayer(shapeLayer)
+        }
+
+    }
+}
 

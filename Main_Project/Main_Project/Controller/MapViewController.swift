@@ -8,9 +8,12 @@
 
 import UIKit
 
-let xScale = 300.0
-let yScale = 125.0
-let nodeSize = 14.0
+let xScale = 130.0
+let yScale = 110.0
+let nodeSize = 25.0
+let lineWidth = 2.0
+let nodeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+let bgColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
 
 class MapViewController: UIViewController {
     
@@ -20,7 +23,8 @@ class MapViewController: UIViewController {
 
     var session: Session!
     var mapSize = CGSize(width: 0, height: 0)
-    
+    var safeArea : CGRect = CGRect()
+
     override func loadView() {
         super.loadView()
     }
@@ -29,22 +33,23 @@ class MapViewController: UIViewController {
         super.viewDidLayoutSubviews()
         scrollView.delegate = self
         
+        self.view.backgroundColor = bgColor
+        
         let activeMap = QRMap(withMapID: 0, forSession: session)
         print("Active Map: \(activeMap)")
         
         // Get safe-area size for map drawing
-        var saFrame : CGRect = CGRect()
         if #available(iOS 11.0, *) {
-            saFrame = self.view.safeAreaLayoutGuide.layoutFrame
+            safeArea = self.view.safeAreaLayoutGuide.layoutFrame
         }
         else{
-            saFrame = UIScreen.main.bounds
+            safeArea = UIScreen.main.bounds
         }
         
         
         if let cartographer = QRCartographer(map: activeMap){
             self.mapSize = cartographer.frame.size
-            drawMap(with: cartographer, safeArea: saFrame)
+            drawMap(with: cartographer)
         }
         else{
             print("The map is invalid! (Need some debugging)")
@@ -62,16 +67,15 @@ class MapViewController: UIViewController {
     }
     
     
-    func drawMap(with cartographer: QRCartographer, safeArea: CGRect){
+    func drawMap(with cartographer: QRCartographer){
         
         var nodeButtons : [NodeButton] = []
         
         let mapView = UIView(frame: cartographer.frame)
-//        mapView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         mapViewContainer.addSubview(mapView)
         
-        // Resize the view container based on map size
-        
+        // Resize the map view container based on map size. Choose the larger:
+        // screen height (save area) or map size.
         let mvcHeight = CGFloat(max(safeArea.height, mapSize.height))
         let mvcWidth = CGFloat(max(safeArea.width, mapSize.width))
         mapViewContainer.frame = CGRect(x:0,
@@ -79,17 +83,23 @@ class MapViewController: UIViewController {
                                         width: mvcWidth,
                                         height: mvcHeight)
         
-        mapView.center.y = mapViewContainer.frame.size.height/2
+        // Center the map view vertically in it's container
+        mapView.center.y = mvcHeight/2
 
         scrollView.contentSize = mapViewContainer.frame.size
         let vertOverhang = safeArea.height/scrollView.contentSize.height
         if vertOverhang < 1{
             scrollView.minimumZoomScale = vertOverhang
             scrollView.zoomScale = vertOverhang
-            
         }
         scrollView.showsHorizontalScrollIndicator = true
-        scrollView.maximumZoomScale = 1.2
+        scrollView.maximumZoomScale = 1.5
+        
+        for edge in cartographer.edges{
+            let newEdge = EdgeLine(edge)
+            mapView.addSubview(newEdge)
+        }
+        
         
         for node in cartographer.displayableNodes{
             let newNodeButton = NodeButton(node)
@@ -102,8 +112,8 @@ class MapViewController: UIViewController {
     @objc func nodeSoftFocus(_ sender: NodeButton){
         print("ButtonPushed")
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 130, height: 30))
-        label.center = CGPoint(x: sender.node.point.x + CGFloat(nodeSize/2),
-                               y: sender.node.point.y + CGFloat(nodeSize) + 15)
+        label.center = CGPoint(x: sender.node.point.x,
+                               y: sender.node.point.y + CGFloat(nodeSize/2) + 20)
         label.textAlignment = .center
         label.text = sender.node.title
         label.layer.cornerRadius = label.frame.height/2
@@ -123,12 +133,14 @@ extension MapViewController: UIScrollViewDelegate {
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         
-        // This isn't getting the right size from the
-        let heightAfterZoom = mapSize.height * scrollView.zoomScale
-        let widthAfterZoom = mapSize.width * scrollView.zoomScale
+        let heightAfterZoom = CGFloat(mapSize.height * scrollView.zoomScale)
+        let widthAfterZoom = CGFloat(mapSize.width * scrollView.zoomScale)
         let sizeAfterZoom = CGSize(width: widthAfterZoom, height: heightAfterZoom)
-        
         scrollView.contentSize = sizeAfterZoom
-
+//        scrollView.subviews[0].subviews[0].center.y =
+//            (max(mapSize.height, safeArea.height) / scrollView.zoomScale)/2
+        
+        scrollView.subviews[0].center.y = max(scrollView.contentSize.height/2,
+                                              safeArea.height/2)
     }
 }

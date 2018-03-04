@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3D8736862040EB7C00189B2E /* NodeViewControlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8736852040EB7C00189B2E /* NodeViewControlers.swift */; };
-		B279116D204A31B000354B65 /* Popups in Resources */ = {isa = PBXBuildFile; fileRef = B279116C204A31B000354B65 /* Popups */; };
+		B22ACEB0204BAD7700396048 /* QPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22ACEAF204BAD7700396048 /* QPopupViewController.swift */; };
+		B22ACEB2204C603A00396048 /* RPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22ACEB1204C603900396048 /* RPopupView.xib */; };
+		B22ACEB4204C606800396048 /* RPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22ACEB3204C606800396048 /* RPopupViewController.swift */; };
+		B22ACEB6204C653300396048 /* DesignableX in Resources */ = {isa = PBXBuildFile; fileRef = B22ACEB5204C653300396048 /* DesignableX */; };
+		B2A2BB1B204B8EED00A13004 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EFAF22204B8E4000FEF502 /* DesignableButton.swift */; };
+		B2A2BB1D204B8EF200A13004 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EFAF24204B8E4000FEF502 /* DesignableView.swift */; };
+		B2A2BB1F204B8EF900A13004 /* QPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2EFAF25204B8E4100FEF502 /* QPopupView.xib */; };
 		B2ABC44E2027D6F000A2BA5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ABC44D2027D6F000A2BA5E /* AppDelegate.swift */; };
 		B2ABC4502027D6F000A2BA5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ABC44F2027D6F000A2BA5E /* ViewController.swift */; };
 		B2ABC4532027D6F000A2BA5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2ABC4512027D6F000A2BA5E /* Main.storyboard */; };
@@ -24,7 +30,10 @@
 		3D8736852040EB7C00189B2E /* NodeViewControlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeViewControlers.swift; sourceTree = "<group>"; };
 		44436DE52DB9740996780085 /* Pods-Main_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Main_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Main_Project/Pods-Main_Project.debug.xcconfig"; sourceTree = "<group>"; };
 		B035FF8920E05C47855083E8 /* Pods-Main_Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Main_Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Main_Project/Pods-Main_Project.release.xcconfig"; sourceTree = "<group>"; };
-		B279116C204A31B000354B65 /* Popups */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Popups; sourceTree = "<group>"; };
+		B22ACEAF204BAD7700396048 /* QPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPopupViewController.swift; sourceTree = "<group>"; };
+		B22ACEB1204C603900396048 /* RPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RPopupView.xib; sourceTree = "<group>"; };
+		B22ACEB3204C606800396048 /* RPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPopupViewController.swift; sourceTree = "<group>"; };
+		B22ACEB5204C653300396048 /* DesignableX */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DesignableX; sourceTree = "<group>"; };
 		B2ABC44A2027D6F000A2BA5E /* Main_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Main_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2ABC44D2027D6F000A2BA5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2ABC44F2027D6F000A2BA5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +41,9 @@
 		B2ABC4542027D6F000A2BA5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2ABC4572027D6F000A2BA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2ABC4592027D6F000A2BA5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2EFAF22204B8E4000FEF502 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		B2EFAF24204B8E4000FEF502 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		B2EFAF25204B8E4100FEF502 /* QPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QPopupView.xib; sourceTree = "<group>"; };
 		B679FDE32029FA9B00C0C878 /* DBInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBInterface.swift; sourceTree = "<group>"; };
 		B679FDE52029FAEE00C0C878 /* SManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SManager.swift; sourceTree = "<group>"; };
 		B679FDFB202A2C4400C0C878 /* Pods_Main_Project.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_Main_Project.framework; sourceTree = "<group>"; };
@@ -62,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				B2ABC44C2027D6F000A2BA5E /* Main_Project */,
-				B279116C204A31B000354B65 /* Popups */,
 				B2ABC44B2027D6F000A2BA5E /* Products */,
 				F84287A8AB2E056F34644D46 /* Pods */,
 				515B0188987765948AB14D43 /* Frameworks */,
@@ -91,9 +102,14 @@
 		B679FDE02029FA1B00C0C878 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B22ACEB5204C653300396048 /* DesignableX */,
 				B2ABC4542027D6F000A2BA5E /* Assets.xcassets */,
 				B2ABC4512027D6F000A2BA5E /* Main.storyboard */,
 				B2ABC4562027D6F000A2BA5E /* LaunchScreen.storyboard */,
+				B2EFAF22204B8E4000FEF502 /* DesignableButton.swift */,
+				B2EFAF24204B8E4000FEF502 /* DesignableView.swift */,
+				B22ACEB1204C603900396048 /* RPopupView.xib */,
+				B2EFAF25204B8E4100FEF502 /* QPopupView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +130,8 @@
 				B2ABC44F2027D6F000A2BA5E /* ViewController.swift */,
 				B6DDF5D7202BB950000F0C3F /* MapViewController.swift */,
 				3D8736852040EB7C00189B2E /* NodeViewControlers.swift */,
+				B22ACEAF204BAD7700396048 /* QPopupViewController.swift */,
+				B22ACEB3204C606800396048 /* RPopupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,9 +209,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2ABC4582027D6F000A2BA5E /* LaunchScreen.storyboard in Resources */,
-				B279116D204A31B000354B65 /* Popups in Resources */,
+				B22ACEB6204C653300396048 /* DesignableX in Resources */,
 				B2ABC4552027D6F000A2BA5E /* Assets.xcassets in Resources */,
 				B2ABC4532027D6F000A2BA5E /* Main.storyboard in Resources */,
+				B2A2BB1F204B8EF900A13004 /* QPopupView.xib in Resources */,
+				B22ACEB2204C603A00396048 /* RPopupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,12 +288,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B22ACEB4204C606800396048 /* RPopupViewController.swift in Sources */,
 				B2ABC4502027D6F000A2BA5E /* ViewController.swift in Sources */,
 				3D8736862040EB7C00189B2E /* NodeViewControlers.swift in Sources */,
+				B2A2BB1B204B8EED00A13004 /* DesignableButton.swift in Sources */,
 				B2ABC44E2027D6F000A2BA5E /* AppDelegate.swift in Sources */,
 				B6DDF5D8202BB950000F0C3F /* MapViewController.swift in Sources */,
 				B679FDE42029FA9B00C0C878 /* DBInterface.swift in Sources */,
+				B22ACEB0204BAD7700396048 /* QPopupViewController.swift in Sources */,
 				B679FDE62029FAEE00C0C878 /* SManager.swift in Sources */,
+				B2A2BB1D204B8EF200A13004 /* DesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWQ66CV52L;
+				DEVELOPMENT_TEAM = J2N599BAJG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -421,7 +445,7 @@
 				INFOPLIST_FILE = Main_Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fischwil.Qdemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ucdenver.S108652414;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Main_Project/Controller/Main_Project-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -437,7 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWQ66CV52L;
+				DEVELOPMENT_TEAM = J2N599BAJG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -445,7 +469,7 @@
 				INFOPLIST_FILE = Main_Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fischwil.Qdemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ucdenver.S108652414;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Main_Project/Controller/Main_Project-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

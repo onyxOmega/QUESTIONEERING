@@ -103,7 +103,7 @@ class MapViewController: UIViewController {
         
         for node in cartographer.displayableNodes{
             let newNodeButton = NodeButton(node)
-            newNodeButton.addTarget(self, action: #selector(nodeSoftFocus), for: .touchUpInside)
+            newNodeButton.addTarget(self, action: #selector(presentPopup), for: .touchUpInside)
             nodeButtons.append(newNodeButton)
             mapView.addSubview(newNodeButton)
         }
@@ -121,6 +121,38 @@ class MapViewController: UIViewController {
         label.alpha = 0.5
         sender.superview?.addSubview(label)
     }
+    
+    @objc func presentPopup(_ sender: NodeButton){
+        switch sender.node.type{
+            
+        case .rNode:
+            let popupView = RPopupViewController(nibName: "RPopupView", bundle: nil)
+            popupView.preferredContentSize = CGSize(width: 290, height: 450)
+            popupView.modalPresentationStyle = UIModalPresentationStyle.popover
+            popupView.node = sender.node
+            present(popupView, animated: true, completion: nil)
+            popupView.saveButton.addTarget(self, action: #selector(confirmModification), for: .touchUpInside)
+            let qPopupViewController = popupView.popoverPresentationController
+            qPopupViewController?.sourceView = sender
+            
+        case .qNode:
+            let popupView = QPopupViewController(nibName: "QPopupView", bundle: nil)
+            popupView.preferredContentSize = CGSize(width: 290, height: 450)
+            popupView.modalPresentationStyle = UIModalPresentationStyle.popover
+            popupView.node = sender.node
+            present(popupView, animated: true, completion: nil)
+            popupView.saveButton.addTarget(self, action: #selector(confirmModification), for: .touchUpInside)
+            let qPopupViewController = popupView.popoverPresentationController
+            qPopupViewController?.sourceView = sender
+        }
+    
+    }
+    
+    @objc func confirmModification(){
+        //TODO: update the model and reload UI
+        print("I can not update the model from here.")
+    }
+
 }
 
 

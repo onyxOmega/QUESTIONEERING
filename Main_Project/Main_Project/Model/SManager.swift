@@ -25,6 +25,7 @@ struct QNodeData{
         self.dateAsked = properties["dateAsked"] as? Date
         self.synopsis = properties["synopsis"] as? String
     }
+    
 }
 
 

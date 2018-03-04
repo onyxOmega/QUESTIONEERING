@@ -15,12 +15,12 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QPopupViewController" customModule="Main_Project" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RPopupViewController" customModule="Main_Project" customModuleProvider="target">
             <connections>
+                <outlet property="URLfield" destination="2ph-hV-R5V" id="2PP-qc-tI1"/>
                 <outlet property="dateField" destination="5s1-fJ-smL" id="e6j-DQ-LF0"/>
-                <outlet property="questionField" destination="2ph-hV-R5V" id="2PP-qc-tI1"/>
+                <outlet property="notesField" destination="W5i-yG-aoC" id="DSI-MK-Gfj"/>
                 <outlet property="saveButton" destination="SSh-7L-3oi" id="e1P-ee-ipe"/>
-                <outlet property="synopsisField" destination="W5i-yG-aoC" id="DSI-MK-Gfj"/>
                 <outlet property="view" destination="I5k-8O-w24" id="38H-qz-hgK"/>
             </connections>
         </placeholder>
@@ -57,12 +57,12 @@
                             <rect key="frame" x="8" y="8" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="QuestionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eOr-QU-C12">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ResourceIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eOr-QU-C12">
                                     <rect key="frame" x="18" y="18" width="55" height="55"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.32397795376712329" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.74292779056091374" green="0.4630009648962185" blue="0.39293556377162819" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="45"/>
@@ -70,10 +70,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWp-t6-nJL">
-                            <rect key="frame" x="106" y="132" width="78" height="21"/>
+                            <rect key="frame" x="106" y="132" width="78" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                             <attributedString key="attributedText">
-                                <fragment content="Question">
+                                <fragment content="URL">
                                     <attributes>
                                         <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -96,7 +96,7 @@
                             <rect key="frame" x="106" y="217" width="78" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                             <attributedString key="attributedText">
-                                <fragment content="Synposis">
+                                <fragment content="Notes">
                                     <attributes>
                                         <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -145,6 +145,6 @@
         </view>
     </objects>
     <resources>
-        <image name="QuestionIcon" width="50" height="50"/>
+        <image name="ResourceIcon" width="50" height="50"/>
     </resources>
 </document>
